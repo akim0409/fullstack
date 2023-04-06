@@ -16,7 +16,17 @@
     + we use bcrypt for hashing (npm install bcrypt)
         + https://www.npmjs.com/package/bcrypt
   + with cookie session
-  + with jwt
+  + sign cookie as a jwt (jsonwebtoken)
+    + https://www.npmjs.com/package/jsonwebtoken
+    + https://jwt.io/
+  + *KEY AUTH TAKEAWAYS*
+    + Why do we hash passwords?
+      + If our db is compromised, we don't want user's plaintext passwords to be exposed
+      + Hashing is one way
+    + Why do we sign the cookie as a jwt (jsonwebtoken)?
+      + So that a bad user cannot create a fake cookie, because they don't know our secret signing key
+      + Only we can verify cookies as valid because we can check if the signature matches
+
 
 TODO:
 + create frontend folder,

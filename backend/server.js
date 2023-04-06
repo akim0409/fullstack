@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const User = require("./db/models/User");
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
@@ -14,9 +15,6 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello World!" });
 });
 
-// POST /users  { username, password }
-//    if username exists
-//      -> 409, message: Username already exists
 app.post("/users", async (req, res) => {
   const existingUser = await User.findOne({
     where: { username: req.body.username }
@@ -30,16 +28,35 @@ app.post("/users", async (req, res) => {
   }
 });
 
-// POST /users/session
 app.post("/users/session", async (req, res) => {
   const isCorrect = await User.checkAuth(req.body);
+
+  const token = jwt.sign({ username: req.body.username }, 'mysecretprivatekey');
+  
   if (isCorrect) {
-    res.status(200).json({ message: "Session granted"});
+    res.status(200).cookie("token", token).json({ message: "Session granted"});
   } else {
     res.status(401).json({ message: "Session not authorized"});
   }
-})
+});
 
+// TESTING ONLY
+// GET /users/session
+  // if cookie does not exist, send 401
+
+app.get("/users/session", async (req, res) => {
+  const token = req.cookies.token
+  if (token === undefined) {
+    res.status(401).json({ message: "Token missing"});
+  } else {
+    try {
+      const { username } = jwt.verify(token, 'mysecretprivatekey');
+      res.status(200).json({ message: `Token verified, you are ${username}`});
+    } catch (err) {
+      res.status(401).json({ message: "Token invalid"});
+    }
+  }
+})
 
 const port = 3001;
 app.listen(port, () => {

@@ -13,8 +13,6 @@ User.createAuth = async ({ username, password }) => {
 };
 
 User.checkAuth = async ({ username, password }) => {
-
-  console.log({username, password})
   const user = await User.findOne({
     where: { username }
   });
@@ -22,13 +20,7 @@ User.checkAuth = async ({ username, password }) => {
   if (user === null) {
     return false;
   } else {
-    const hashPassword = await bcrypt.hash(password, 10);
-    console.log({
-      hashPassword,
-      dbPassword: user.password
-    });
-
-    await bcrypt.compare(password, user.password)
+    return await bcrypt.compare(password, user.password);
   }
 }
 
