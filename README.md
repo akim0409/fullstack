@@ -29,7 +29,23 @@
 
 
 TODO:
-+ create frontend folder,
-+ create signup form /signup
++ [X] create frontend folder,
++ [X] create signin/signup
++ [ ] create db models
+  + Dog
+    + name
+    + age
+    + breed
+    + personality
+    + imageUrl
+    + size
+    + color
+    + gender
+  + endpoints
+    +   GET /dogs
+    +   POST /dogs
+    +   PUT /dogs/:dogId
++ [ ] create association
+
 
   
