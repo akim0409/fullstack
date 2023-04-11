@@ -31,7 +31,7 @@
 TODO:
 + [X] create frontend folder,
 + [X] create signin/signup
-+ [ ] create db models
++ [X] create db models
   + Dog
     + name
     + age
@@ -45,7 +45,11 @@ TODO:
     +   GET /dogs
     +   POST /dogs
     +   PUT /dogs/:dogId
-+ [ ] create association
++ [X] require auth for dog POST/PUT
+  + https://github.com/akim0409/hogwarts/blob/main/backend/middleware/session-middleware.js
++ [ ] create one to many (one user to many dog) association
+  + https://sequelize.org/docs/v6/core-concepts/assocs/#creating-the-standard-relationships
+  + https://github.com/akim0409/hogwarts/blob/main/backend/db/models/associations.js
 
 
   
