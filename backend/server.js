@@ -2,8 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
-const User = require("./db/models/User");
 const jwt = require('jsonwebtoken');
+const User = require("./db/models/User");
+const Dog = require("./db/models/Dog");
 
 const app = express();
 
@@ -57,6 +58,39 @@ app.get("/users/session", async (req, res) => {
     }
   }
 })
+
+// endpoints
+//     +   GET /dogs
+//     +   POST /dogs
+//     +   PUT /dogs/:dogId
+
+
+  app.get("/dogs", async (req, res) => {
+    const dogs = await Dog.findAll();
+    res.status(200).json(dogs);
+  });
+
+
+  app.post("/dogs", async (req, res) => {
+    await Dog.create(req.body);
+    res.status(201).json({ message: "Dog created"});
+  })
+
+  app.put("/dogs/:dogId", async (req, res) => {
+    const dog = await Dog.findOne({
+      where: {id: req.params.dogId}
+    });
+
+    if (dog) {
+      const updatedDog = await Dog.update(req.body, {
+        where: { id: req.params.dogId}
+      })
+      res.status(200).json({ message: `Dog with ID: ${req.params.dogId} updated successfully`});
+    } else {
+      res.status(404).json({ message: `Dog with ID: ${req.params.dogId} does not exist`});
+    }
+  });
+
 
 const port = 3001;
 app.listen(port, () => {

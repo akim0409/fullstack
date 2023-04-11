@@ -8,7 +8,7 @@ const SignInPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [isSignIn, setIsSignIn] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(true);
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
@@ -31,8 +31,8 @@ const SignInPage = () => {
       setError("");
     }
   };
-
-  const handleSignIn = async () => {
+  
+  const handleSignIn = async ({ username, password }) => {
     const response = await apiFetch({
       path: "/users/session",
       method: "POST",
@@ -44,6 +44,14 @@ const SignInPage = () => {
     } else {
       navigate("/home");
     }
+  };
+
+  const handleFormSignIn = async () => {
+    handleSignIn({ username, password });
+  };
+
+  const handleDemoSignIn = async () => {
+    handleSignIn({ username: "testuser", password: "password" });
   };
 
   const signUpForm = (
@@ -77,7 +85,8 @@ const SignInPage = () => {
   const signInForm = (
     <AuthForm
       title="Sign In"
-      handleSubmit={handleSignIn}
+      handleSubmit={handleFormSignIn}
+      handleDemoSignIn={handleDemoSignIn}
       buttonLabel="Sign In"
       error={error}
       fields={[
