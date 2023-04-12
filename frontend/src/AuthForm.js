@@ -6,7 +6,7 @@ const AuthForm = (props) => {
     return (
       <div key={idx}>
         <input
-          className="rounded-md border border-zinc-200 py-2 px-2 my-3 text-zinc-500 placeholder:text-zinc-300 w-full"
+          className="rounded-md border border-zinc-200 py-2 px-2 my-3 text-zinc-500 placeholder:text-zinc-300 w-full hover:border-purple-500"
           placeholder={field.name}
           value={field.value}
           onChange={field.handleChange}

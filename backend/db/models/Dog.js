@@ -12,6 +12,6 @@ const Dog = sequelize.define('Dog', {
   weight: DataTypes.NUMBER,
   personality: DataTypes.STRING,
   imageUrl: DataTypes.STRING,
-})
+});
 
 module.exports = Dog;

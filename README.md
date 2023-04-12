@@ -47,9 +47,27 @@ TODO:
     +   PUT /dogs/:dogId
 + [X] require auth for dog POST/PUT
   + https://github.com/akim0409/hogwarts/blob/main/backend/middleware/session-middleware.js
-+ [ ] create one to many (one user to many dog) association
++ [X] create one to many (one user to many dog) association
   + https://sequelize.org/docs/v6/core-concepts/assocs/#creating-the-standard-relationships
   + https://github.com/akim0409/hogwarts/blob/main/backend/db/models/associations.js
++ [X] create dog list page   !!!
+  + frontend route /
+  + render all the dogs
++ [X] dog show page
+  + frontend route /dog/:dogId
++ [ ] style dog item card
++ [ ] style dog profile page
++ [ ] add 16 dog seeds 
+
+Features:
+  + Signup / Signin
+  + Create a dog
+  + View list of dogs
+  + View full profile of dog
+  + Set up play date
+  + Create playdate featuring your dog, playdate shows up on dog profile
+    + date/time/activity/location
+
 
 
   

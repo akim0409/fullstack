@@ -15,6 +15,20 @@ const createDog = async (req, res) => {
   }
 };
 
+const getDogById = async (req, res) => {
+  const dog = await Dog.findOne({
+    where: {
+      id: req.params.dogId
+    }
+  })
+
+  if (dog) {
+    res.status(200).json(dog)
+  } else {
+    res.status(404).json({ message: "Dog not found"});
+  }
+};
+
 const updateDogById = async (req, res) => {
   const dog = await Dog.findOne({
     where: { id: req.params.dogId },
@@ -46,5 +60,6 @@ const updateDogById = async (req, res) => {
 module.exports = {
   getDogs,
   createDog,
+  getDogById,
   updateDogById
 }
