@@ -26,19 +26,19 @@ const runSeed = async () => {
     age: 3,
     color: "Tan",
     weight: 60,
-    personality: "Likes to play with female dogs",
+    personality: "Enjoys any games that involve retrieving objects; especially fetch using plain old sticks. Likes to play with female dogs. Very friendly, although sometimes can be too rough.",
     imageUrl: "https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk2MzI1NjA0Mjg5Njg0Nzg0/golden-retriever-names.png",
   })
 
   await testUser.createDog({
-      "name": "Sky",
+      "name": "Skyler",
       "breed": "Siberian Husky",
       "sex": "Female",
       "fixed": true,
       "age": 6,
-      "color": "brown and white",
+      "color": "Brown and White",
       "weight": 50,
-      "personality": "Not comfortable in big groups, prefers a date",
+      "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
       "imageUrl": "https://cdn.britannica.com/84/232784-050-1769B477/Siberian-Husky-dog.jpg"
   });
 

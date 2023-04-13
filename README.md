@@ -55,9 +55,18 @@ TODO:
   + render all the dogs
 + [X] dog show page
   + frontend route /dog/:dogId
-+ [ ] style dog item card
-+ [ ] style dog profile page
++ [X] basic style dog item card
++ [X] basic style dog profile page
 + [ ] add 16 dog seeds 
++ [ ] choose two fonts, for headings/text
++ [ ] adding two more fields to the Dog model
+  + Favorite game
+  + Favorite food
+  + Trained
++ [ ] add basic navbar
+  + two buttons
+    + dogs
+    + sign in
 
 Features:
   + Signup / Signin
