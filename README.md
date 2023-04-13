@@ -57,16 +57,29 @@ TODO:
   + frontend route /dog/:dogId
 + [X] basic style dog item card
 + [X] basic style dog profile page
-+ [ ] add 16 dog seeds 
-+ [ ] choose two fonts, for headings/text
-+ [ ] adding two more fields to the Dog model
++ [X] add 16 dog seeds 
++ [X] choose two fonts, for headings/text
++ [X] adding two more fields to the Dog model
   + Favorite game
   + Favorite food
   + Trained
-+ [ ] add basic navbar
++ [X] add basic navbar
   + two buttons
     + dogs
     + sign in
++ [ ] create Date model
+  + location (string)
+  + activity (string)
+  + max number dogs (number)
+  + date (https://sequelize.org/docs/v6/core-concepts/model-basics/#dates)
++ [ ] create Date endpoints
+  + GET /dates
+  + POST /dates
+  + DELETE /dates/:dateId
+  + UPDATE /dates/:dateId
++ [ ] create date list page
+  + frontend route /dates
++ [ ] create association between dogs and Date
 
 Features:
   + Signup / Signin

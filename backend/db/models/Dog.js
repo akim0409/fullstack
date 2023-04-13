@@ -11,6 +11,8 @@ const Dog = sequelize.define('Dog', {
   color: DataTypes.STRING,
   weight: DataTypes.NUMBER,
   personality: DataTypes.STRING,
+  favoriteGame: DataTypes.STRING,
+  favoriteTreat: DataTypes.STRING,
   imageUrl: DataTypes.STRING,
 });
 

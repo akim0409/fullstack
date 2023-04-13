@@ -106,7 +106,7 @@ const SignInPage = () => {
   );
 
   return (
-    <div className="flex flex-col items-center  m-8">
+    <div className="flex flex-col items-center justify-center flex-1 bg-sky-100">
       {isSignIn ? signInForm : signUpForm}
       <div
         className="my-3 text-zinc-500 cursor-pointer select-none"
@@ -117,12 +117,12 @@ const SignInPage = () => {
         {isSignIn ? (
           <>
             Don't have an account?{" "}
-            <span className="underline text-purple-600">Create One</span>
+            <span className="underline text-sky-600">Create One</span>
           </>
         ) : (
           <>
             Already have an account?{" "}
-            <span className="underline text-purple-600">Sign In</span>
+            <span className="underline text-sky-600">Sign In</span>
           </>
         )}
       </div>

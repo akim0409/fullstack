@@ -23,8 +23,8 @@ const DogListPage = () => {
   const dogListItems = dogs.map(dog => <DogItem key={dog.id} dog={dog} />)
 
   return (
-    <div className="flex m-8">
-      {dogListItems}
+    <div className="flex justify-center bg-sky-100 px-4">
+      <div className="flex justify-center flex-wrap max-w-5xl w-full mt-24">{dogListItems}</div>
     </div>
   )
 };

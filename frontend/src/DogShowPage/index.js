@@ -34,8 +34,8 @@ const DogShowPage = () => {
             src={dog.imageUrl}
           />
           <div className="mx-6 flex flex-col justify-center">
-            <div className="pl-4 py-2 border-l-8 border-purple-600">
-              <div className="my-2 text-5xl font-bold text-zinc-600">
+            <div className="pl-4 py-2 border-l-8 border-orange-300">
+              <div className="my-2 text-5xl font-bold text-sky-700">
                 {dog.name}
               </div>
               <div className="flex text-xl my-2">
@@ -48,18 +48,18 @@ const DogShowPage = () => {
           </div>
         </div>
         <div className="my-12 flex flex-col text-lg">
-          <div className="mb-4 pb-2 font-semibold text-zinc-600 text-2xl border-b border-purple-600">Personality</div>
+          <div className="mb-4 pb-2 font-semibold text-zinc-600 text-2xl border-b-2 border-orange-300">Personality</div>
           <div className="text-zinc-500 leading-loose ">{dog.personality}</div>
         </div>
-        <div className="flex pb-2 mb-4 text-2xl text-zinc-600 font-semibold mb-4 border-b border-purple-600">
+        <div className="flex pb-2 mb-4 text-2xl text-zinc-600 font-semibold mb-4 border-b-2 border-orange-300">
             About
         </div>
         <div className="flex justify-around mb-10">
           <div className="">
             <div className="my-4 flex text-lg">
-              <div className="font-semibold w-32 text-zinc-600">
+              <div className="font-semibold w-48 text-zinc-600">
                 {
-                  dog.sex === "Female" ? <i className="mx-2 w-6 fa-solid fa-venus"> </i> : <i className="mx-2 w-6 fa-solid fa-mars"></i>
+                  dog.sex === "Female" ? <i className="text-orange-400 mx-2 w-6 fa-solid fa-venus"> </i> : <i className="text-orange-400 mx-2 w-6 fa-solid fa-mars"></i>
                 }
               
                 Sex
@@ -67,24 +67,36 @@ const DogShowPage = () => {
               <div className="text-zinc-500">{dog.sex}</div>
             </div>
             <div className="my-4 flex text-lg">
-              <div className="font-semibold w-32 text-zinc-600">
-              <i className="mx-2 w-6 fa-solid fa-paw"></i>
+              <div className="font-semibold w-48 text-zinc-600">
+              <i className="text-sky-600 mx-2 w-6 fa-solid fa-paw"></i>
               Fixed</div>
               <div className="text-zinc-500">{dog.fixed ? "Yes" : "No"}</div>
+            </div>
+            <div className="my-4 flex text-lg">
+              <div className="font-semibold w-48 text-zinc-600">
+              <i className="text-orange-400 mx-2 w-6 fa-solid fa-tennis-ball"></i>
+                Favorite Game</div>
+              <div className="text-zinc-500">{dog.favoriteGame}</div>
             </div>
           </div>
           <div>
             <div className="my-4 flex text-lg">
-              <div className="font-semibold w-32 text-zinc-600">
-              <i className="mx-2 w-6 fa-solid fa-palette"></i>
+              <div className="font-semibold w-48 text-zinc-600">
+              <i className="text-sky-600 mx-2 w-6 fa-solid fa-palette"></i>
                 Color</div>
               <div className="text-zinc-500">{dog.color}</div>
             </div>
             <div className="my-4 flex text-lg">
-              <div className="font-semibold w-32 text-zinc-600">
-              <i className="mx-2 w-6 fa-solid fa-weight-scale"></i>
+              <div className="font-semibold w-48 text-zinc-600">
+                <i className="text-orange-400 mx-2 w-6 fa-solid fa-weight-scale"></i>
                 Weight</div>
               <div className="text-zinc-500">{dog.weight} pounds</div>
+            </div>
+            <div className="my-4 flex text-lg">
+              <div className="font-semibold w-48 text-zinc-600">
+                <i className="text-sky-600 mx-2 w-6 fa-solid fa-bone"></i>
+                Favorite Treat</div>
+              <div className="text-zinc-500">{dog.favoriteTreat}</div>
             </div>
           </div>
         </div>
