@@ -21,7 +21,7 @@ const createSession =  async (req, res) => {
   const token = jwt.sign({ username: req.body.username }, "mysecretprivatekey");
 
   if (isCorrect) {
-    res.status(200).cookie("token", token).json({ message: "Session granted" });
+    res.status(200).cookie("token", token).json({ token });
   } else {
     res.status(401).json({ message: "Session not authorized" });
   }

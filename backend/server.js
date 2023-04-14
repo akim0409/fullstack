@@ -4,6 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const UserController = require("./controllers/user-controller");
 const DogController= require("./controllers/dog-controller");
+const DogDateController = require("./controllers/dogDate-controller")
 const SessionMiddleware= require("./middleware/session-middleware");
 
 const app = express();
@@ -19,6 +20,7 @@ app.get("/dogs", DogController.getDogs);
 app.get("/dogs/:dogId", DogController.getDogById);
 app.post("/dogs", SessionMiddleware.applySession, DogController.createDog);
 app.put("/dogs/:dogId", SessionMiddleware.applySession, DogController.updateDogById);
+app.get("/dates", DogDateController.getDogDates);
 
 const port = 3001;
 app.listen(port, () => {

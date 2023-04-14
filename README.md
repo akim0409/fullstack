@@ -67,19 +67,27 @@ TODO:
   + two buttons
     + dogs
     + sign in
-+ [ ] create Date model
++ [X] create Date model
   + location (string)
   + activity (string)
   + max number dogs (number)
   + date (https://sequelize.org/docs/v6/core-concepts/model-basics/#dates)
-+ [ ] create Date endpoints
-  + GET /dates
-  + POST /dates
-  + DELETE /dates/:dateId
-  + UPDATE /dates/:dateId
-+ [ ] create date list page
++ [X] create dates in the seeds
++ [] create Date endpoints
+  + [X] GET /dates 
+  !      POST /dates
+  !      DELETE /dates/:dateId
+  !      UPDATE /dates/:dateId
++ [X] create date list page
   + frontend route /dates
-+ [ ] create association between dogs and Date
++ [X] read session token on frontend to display username / sign out
+  + https://www.npmjs.com/package/js-cookie
+  + https://www.npmjs.com/package/jwt-decode
+  + sign out
+    + 1. setSessionToken to null
+    + 2. delete the cookie from the browser
+  + make sign out dropdown pop out of username
+! [ ] create association between dogs and Date
 
 Features:
   + Signup / Signin

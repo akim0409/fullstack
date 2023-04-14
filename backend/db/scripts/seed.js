@@ -98,7 +98,7 @@ const runSeed = async () => {
 
   await alvinUser.createDog({
     "name": "Cooper",
-    "breed": "French Bulldog",
+    "breed": "Afghan Hound",
     "sex": "Male",
     "fixed": false,
     "age": 3,
@@ -107,7 +107,7 @@ const runSeed = async () => {
     favoriteGame: "Hide & Seek",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-    "imageUrl": "https://www.easypetmd.com/sites/default/files/Afghan%20Hound%20(4).jpg"
+    "imageUrl": "https://www.dogswiz.com/wp-content/uploads/sites/6/2022/03/Afghan-Hound.jpg"
   })
 
   await alvinUser.createDog({
@@ -121,7 +121,7 @@ const runSeed = async () => {
     favoriteGame: "Fetch",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-    "imageUrl": "https://a-z-animals.com/media/animals/images/original/australian_kelpie_dog.jpg"
+    "imageUrl": "https://www.thesprucepets.com/thmb/BVWTmYnvlvOfh7Q3wuUAoC3GCM0=/2119x0/filters:no_upscale():strip_icc()/GettyImages-713869107-39e43f2374514fc89b06680938abd7bf.jpg"
   })
 
   await alvinUser.createDog({
@@ -135,7 +135,7 @@ const runSeed = async () => {
     favoriteGame: "Fetch",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-    "imageUrl": "https://d3ekkvinch1ig5.cloudfront.net/breeds/Llfrw4a15G9hjGwd35EkjerKiMvHTdA6mPXbSprO.png"
+    "imageUrl": "https://static.fajnyzwierzak.pl/media/uploads/media_image/original/wpis/1115/hodowla-airedale-terriera.jpg"
   })
 
   await autumnUser.createDog({
@@ -163,7 +163,7 @@ const runSeed = async () => {
     favoriteGame: "Fetch",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-    "imageUrl": "https://img1.wsimg.com/isteam/ip/414fcd97-cd79-4b81-9ec9-047d5c214649/Portoer%20on%20Bridge.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25"
+    "imageUrl": "https://cdn.britannica.com/49/161649-050-3F458ECF/Bernese-mountain-dog-grass.jpg"
   })
 
   await autumnUser.createDog({
@@ -303,7 +303,21 @@ const runSeed = async () => {
     date: new Date('2023-04-15 14:29:00')
   });
 
-  console.log(await DogDate.findAll({raw: true}));
+  await DogDate.create({
+    location: 'Central Park,Bow Bridge',
+    activity: 'Tug of War',
+    maxNumberDogs: 2,
+    date: new Date()
+  })
+
+  await DogDate.create({
+    location: 'Prospect Park, Breeze Hill',
+    activity: 'Frisbee',
+    maxNumberDogs: 4,
+    date: new Date()
+  })
+
+  // console.log(await DogDate.findAll({raw: true}));
 };
 
 runSeed();

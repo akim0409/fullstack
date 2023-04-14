@@ -1,26 +1,32 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Cookies from 'js-cookie'
+import NavBar from "./NavBar";
 import HomePage from "./HomePage";
 import SignInPage from "./SignInPage";
 import DogListPage from "./DogListPage";
 import DogShowPage from "./DogShowPage";
-import NavBar from "./NavBar";
+import DogDateListPage from "./DogDateListPage";
 
+// https://www.npmjs.com/package/js-cookie
 const App = () => {
+  const cookieToken = Cookies.get('token');
+  const [sessionToken, setSessionToken] = useState(cookieToken === undefined ? null : cookieToken);
+
   return (
     <BrowserRouter>
-    <div className="flex flex-col h-screen">
-      <NavBar />
-      <Routes>
-        <Route path="/home" Component={HomePage} />
-        <Route path="/sign-in" Component={SignInPage} />
-        <Route path="/" Component={DogListPage}/>
-        <Route path="/dog/:dogId" Component={DogShowPage} />
-      </Routes>
-      
-    </div>
-
+      <div className="flex flex-col h-screen font-nanum">
+        <NavBar sessionToken={sessionToken} setSessionToken={setSessionToken}/>
+        <Routes>
+          <Route path="/home" Component={HomePage} />
+          <Route path="/sign-in" element={<SignInPage setSessionToken={setSessionToken} />}  />
+          <Route path="/" Component={DogListPage} />
+          <Route path="/dog/:dogId" Component={DogShowPage} />
+          <Route path="/dates" Component={DogDateListPage} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -8,7 +8,7 @@ const HomePage = () => {
       path: '/users/session',
       method: 'GET'
     })
-    console.log(await response.json());
+    // console.log(await response.json());
   };
 
   useEffect(() => {

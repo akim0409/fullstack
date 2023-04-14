@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import { apiFetch } from "./services";
 
-const SignInPage = () => {
+const SignInPage = (props) => {
+  const {setSessionToken } = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -42,6 +43,8 @@ const SignInPage = () => {
     if (response.status === 401) {
       setError("Username or password incorrect");
     } else {
+      const { token } = await response.json();
+      setSessionToken(token);
       navigate("/home");
     }
   };
@@ -109,9 +112,14 @@ const SignInPage = () => {
     <div className="flex flex-col items-center justify-center flex-1 bg-sky-100">
       {isSignIn ? signInForm : signUpForm}
       <div
-        className="my-3 text-zinc-500 cursor-pointer select-none"
+        className="my-3 text-stone-500 cursor-pointer select-none"
         onClick={() => {
           setIsSignIn(!isSignIn);
+          setError('');
+          setPassword('');
+          setConfirmPassword('');
+          setUsername('');
+          
         }}
       >
         {isSignIn ? (
