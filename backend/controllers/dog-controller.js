@@ -1,10 +1,26 @@
 const Dog = require("../db/models/Dog")
+const associations = require("../db/models/associations");
 
+
+// https://sequelize.org/docs/v6/core-concepts/assocs/#foohasmanybar
 
 const getDogs = async (req, res) => {
   const dogs = await Dog.findAll();
-  res.status(200).json(dogs);
+  
+  if (req.user) {
+    const dogObjects = [];
+    for (let dog of dogs) {
+      const owned = await req.user.hasDog(dog);
+      const dogObj = dog.get({plain: true});
+      dogObjects.push({ ...dogObj, owned });
+    }
+    res.status(200).json(dogObjects);
+  } else {
+    res.status(200).json(dogs);
+  }
+  
 };
+  
 
 const createDog = async (req, res) => {
   if (req.user) {

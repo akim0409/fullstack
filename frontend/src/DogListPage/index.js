@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "../services";
 import DogItem from "./DogItem";
+import DogSection from "./DogSection";
 
-const DogListPage = () => {
+const DogListPage = (props) => {
+  const { sessionToken } = props;
   const [dogs, setDogs] = useState([]);
 
 
@@ -18,13 +20,26 @@ const DogListPage = () => {
 
   useEffect(() => {
     fetchDogs();
-  }, [])
+  }, [sessionToken])
 
-  const dogListItems = dogs.map(dog => <DogItem key={dog.id} dog={dog} />)
+  const ownedDogs = dogs.filter((dog) => dog.owned === true);
+  const otherDogs = dogs.filter((dog) => dog.owned === false);
+  const allDogs = dogs.filter((dog) => dog.owned === undefined);
 
   return (
-    <div className="flex justify-center bg-blue-100 px-4">
-      <div className="flex justify-center flex-wrap max-w-5xl w-full mt-24">{dogListItems}</div>
+    <div className="flex flex-col items-center bg-blue-100 px-4">
+      <DogSection dogs={ownedDogs}>
+        <i className="mr-2 fa-solid fa-heart text-sky-600"></i>
+        My Dogs
+      </DogSection>
+      <DogSection dogs={otherDogs}>
+        <i className="mr-2 text-sky-600 fa-solid fa-paw"></i>
+        Other Dogs on Barkr
+      </DogSection>
+      <DogSection dogs={allDogs}>
+        <i className="mr-2 text-sky-600 fa-solid fa-paw"></i>
+        Dogs on Barkr
+      </DogSection>
     </div>
   )
 };

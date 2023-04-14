@@ -75,9 +75,10 @@ TODO:
 + [X] create dates in the seeds
 + [] create Date endpoints
   + [X] GET /dates 
-  !      POST /dates
-  !      DELETE /dates/:dateId
-  !      UPDATE /dates/:dateId
+  + [X] DELETE /dates/:dateId
+  + [ ] POST /dates
+  + [ ] UPDATE /dates/:dateId
++ [X] create "My Dogs" vs "Dogs on Barkr" on dog list page  
 + [X] create date list page
   + frontend route /dates
 + [X] read session token on frontend to display username / sign out
@@ -87,7 +88,13 @@ TODO:
     + 1. setSessionToken to null
     + 2. delete the cookie from the browser
   + make sign out dropdown pop out of username
-! [ ] create association between dogs and Date
++ [ ] create association between dogs and Date
++ HOMEWORK
+  + add owned property in GET dog/:dogId
+  + on dog show page,
+    + if the user owned this dog, render message "<3 you own max"
+
+
 
 Features:
   + Signup / Signin

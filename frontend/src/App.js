@@ -8,7 +8,6 @@ import DogListPage from "./DogListPage";
 import DogShowPage from "./DogShowPage";
 import DogDateListPage from "./DogDateListPage";
 
-// https://www.npmjs.com/package/js-cookie
 const App = () => {
   const cookieToken = Cookies.get('token');
   const [sessionToken, setSessionToken] = useState(cookieToken === undefined ? null : cookieToken);
@@ -20,7 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/home" Component={HomePage} />
           <Route path="/sign-in" element={<SignInPage setSessionToken={setSessionToken} />}  />
-          <Route path="/" Component={DogListPage} />
+          <Route path="/" element={<DogListPage sessionToken={sessionToken}/>} />
           <Route path="/dog/:dogId" Component={DogShowPage} />
           <Route path="/dates" Component={DogDateListPage} />
         </Routes>
