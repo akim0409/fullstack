@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import Cookies from 'js-cookie';
-
+import Cookies from "js-cookie";
+import { useState } from "react";
 
 const NavBar = (props) => {
   const { sessionToken, setSessionToken } = props;
   const session = sessionToken === null ? null : jwt_decode(sessionToken);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="flex justify-center items-center bg-sky-700 text-white shadow-md py-2 ">
@@ -36,21 +37,37 @@ const NavBar = (props) => {
           </Link>
           {session ? (
             <>
+              <div
+                onMouseLeave={() => setIsOpen(false)}
+                className="text-sky-100 text-lg relative hover:bg-sky-800 px-1"
+              >
+                <div 
+                className="m-2 flex items-center cursor-default"
+                onMouseOver={() => setIsOpen(true)}>
+                  <i className="mr-2 fa-solid fa-user"></i>
+                  {session.username}
+                  <i className="ml-2 fa-regular fa-angle-down"></i>
+                </div>
+                
+                <div
+                  className={`absolute bg-white right-0 py-2 rounded-b  w-full shadow-xl ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  <div
+                    className="cursor-pointer flex w-full items-center justify-center text-sm px-3 py-2 hover:underline text-sky-800"
+                    onClick={() => {
+                      setSessionToken(null);
+                      Cookies.remove("token");
+                      setIsOpen(false);
+                    }}
+                  >
+                    sign out
+                  </div>
+                </div>
+              </div>
+              
             
-            <div className="text-sky-100 text-lg">
-              <i className="mr-2 fa-solid fa-user"></i>
-              {session.username}
-            </div>
-            <div 
-              className="text-lg text-sky-100"
-              onClick={() => {
-                setSessionToken(null);
-                Cookies.remove('token')
-
-              }}
-            >
-              sign out
-            </div>
             </>
           ) : (
             <Link
