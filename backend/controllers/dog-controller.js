@@ -18,7 +18,6 @@ const getDogs = async (req, res) => {
   } else {
     res.status(200).json(dogs);
   }
-  
 };
   
 
@@ -36,12 +35,19 @@ const getDogById = async (req, res) => {
     where: {
       id: req.params.dogId
     }
-  })
+  });
 
-  if (dog) {
-    res.status(200).json(dog)
-  } else {
+  if (!dog) {
     res.status(404).json({ message: "Dog not found"});
+    return;
+  }
+
+  if (req.user) {
+    const owned = await req.user.hasDog(dog);
+    const dogObj = dog.get({ plain: true });
+    res.status(200).json({ ...dogObj, owned });
+  } else {
+    res.status(200).json(dog);
   }
 };
 

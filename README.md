@@ -82,17 +82,19 @@ TODO:
 + [X] create date list page
   + frontend route /dates
 + [X] read session token on frontend to display username / sign out
-  + https://www.npmjs.com/package/js-cookie
+  + https://www.npmjs.com/package/js-cookie 
   + https://www.npmjs.com/package/jwt-decode
   + sign out
     + 1. setSessionToken to null
     + 2. delete the cookie from the browser
   + make sign out dropdown pop out of username
 + [ ] create association between dogs and Date
-+ HOMEWORK
-  + add owned property in GET dog/:dogId
++ add owned property in GET dog/:dogId
   + on dog show page,
-    + if the user owned this dog, render message "<3 you own max"
+    + if the user owned this dog, render edit button
++ create dog update page
++ create dog create page
+  
 
 
 

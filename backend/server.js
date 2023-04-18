@@ -17,7 +17,7 @@ app.post("/users", UserController.createUser);
 app.post("/users/session", UserController.createSession);
 app.get("/users/session", UserController.getSession);
 app.get("/dogs", SessionMiddleware.applySession, DogController.getDogs);
-app.get("/dogs/:dogId", DogController.getDogById);
+app.get("/dogs/:dogId", SessionMiddleware.applySession, DogController.getDogById);
 app.post("/dogs", SessionMiddleware.applySession, DogController.createDog);
 app.put("/dogs/:dogId", SessionMiddleware.applySession, DogController.updateDogById);
 app.get("/dates", DogDateController.getDogDates);

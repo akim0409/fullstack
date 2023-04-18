@@ -45,7 +45,7 @@ const SignInPage = (props) => {
     } else {
       const { token } = await response.json();
       setSessionToken(token);
-      navigate("/home");
+      navigate("/");
     }
   };
 
