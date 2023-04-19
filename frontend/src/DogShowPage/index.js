@@ -1,10 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { apiFetch } from "../services";
 
 const DogShowPage = () => {
   const [dog, setDog] = useState(null);
   const params = useParams();
+  const navigate = useNavigate();
 
   const fetchDogById = useCallback(async () => {
     const response = await apiFetch({
@@ -57,10 +58,10 @@ const DogShowPage = () => {
               </div>
             </div>
           </div>
-          <div className="text-stone-600">
+          <div className="text-stone-400">
             {dog.owned ? (
               <div className="cursor-pointer hover:text-sky-700">
-                <button>Edit</button>
+                <button onClick={() => navigate(`/dog/update/${params.dogId}`)}>Edit</button>
                 <i className="fa-solid fa-pen-to-square ml-2"></i>
               </div>
             ) : null}

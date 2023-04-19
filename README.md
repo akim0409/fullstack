@@ -93,7 +93,14 @@ TODO:
   + on dog show page,
     + if the user owned this dog, render edit button
 + create dog update page
++ add dropdowns
++ add submit button and implement submit  
 + create dog create page
+  + reuse the update form?
+HOMEWORK
++ implement dog create page handleSubmit, handleCancelClick
++ make the title a prop for create/update
++ the seeds should be created with valid dropdown values
   
 
 

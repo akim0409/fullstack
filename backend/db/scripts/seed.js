@@ -149,7 +149,7 @@ const runSeed = async () => {
     favoriteGame: "Fetch",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-    "imageUrl": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/330405595_1529711904217838_1720061593503141785_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=MPmk-Kggiv0AX8Dw0iq&_nc_ht=scontent-lga3-2.xx&oh=00_AfASjU9HJTnkt0pGqZyW4Wh4fRvcOlAoOuTZKEFwXB7AKQ&oe=643C7B8A"
+    "imageUrl": "https://assets.orvis.com/is/image/orvisprd/AdobeStock_67705847"
   })
 
   await autumnUser.createDog({

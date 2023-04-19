@@ -7,6 +7,7 @@ import DogListPage from "./DogListPage";
 import DogShowPage from "./DogShowPage";
 import DogDateListPage from "./DogDateListPage";
 import DogUpdatePage from "./DogUpdatePage";
+import DogCreatePage from "./DogCreatePage";
 
 const App = () => {
   const cookieToken = Cookies.get('token');
@@ -20,8 +21,10 @@ const App = () => {
           <Route path="/sign-in" element={<SignInPage setSessionToken={setSessionToken} />}  />
           <Route path="/" element={<DogListPage sessionToken={sessionToken}/>} />
           <Route path="/dog/:dogId" Component={DogShowPage} />
-          <Route path="/dog/update/:dogId" Component={DogUpdatePage} />
+          <Route path="/dog/update/:dogId" element={<DogUpdatePage sessionToken={sessionToken} />} />
+          <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />} />
           <Route path="/dates" Component={DogDateListPage} /> 
+
         </Routes>
       </div>
     </BrowserRouter>
