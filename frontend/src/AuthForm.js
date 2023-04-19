@@ -25,7 +25,16 @@ const AuthForm = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit();
+
+           const somethingInvalid = fields.some((field) => {
+            return !(field.validate());
+          });
+
+          if (somethingInvalid) {
+            return;
+          } else {
+            handleSubmit();
+          }
         }}
       >
         {fieldItems}

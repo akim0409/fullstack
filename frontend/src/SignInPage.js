@@ -13,10 +13,6 @@ const SignInPage = (props) => {
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
     const response = await apiFetch({
       path: "/users",
       method: "POST",
@@ -26,10 +22,9 @@ const SignInPage = (props) => {
     if (response.status === 409) {
       setError("Username already exists");
     } else {
-      setUsername("");
-      setPassword("");
-      setConfirmPassword("");
-      setError("");
+      const { token } = await response.json();
+      setSessionToken(token);
+      navigate("/");
     }
   };
   
@@ -68,18 +63,39 @@ const SignInPage = (props) => {
           name: "Username",
           value: username,
           handleChange: (e) => setUsername(e.target.value),
+          validate: () => {
+            if (username.length < 5) {
+              setError('username must be longer than 4 characters');
+              return false;
+            } 
+            return true;
+          }
         },
         {
           name: "Password",
           value: password,
           handleChange: (e) => setPassword(e.target.value),
           hide: true,
+          validate: () => {
+            if (password.length < 6) {
+              setError('password must be longer than 5 characters');
+              return false;
+            }
+            return true;
+          }
         },
         {
           name: "Password Confirmation",
           value: confirmPassword,
           handleChange: (e) => setConfirmPassword(e.target.value),
           hide: true,
+          validate: () => {
+            if (password !== confirmPassword) {
+              setError("Passwords do not match");
+              return false;
+            }
+            return true;
+          }
         },
       ]}
     />
@@ -97,12 +113,14 @@ const SignInPage = (props) => {
           name: "Username",
           value: username,
           handleChange: (e) => setUsername(e.target.value),
+          validate: () => true
         },
         {
           name: "Password",
           value: password,
           handleChange: (e) => setPassword(e.target.value),
           hide: true,
+          validate: () => true
         },
       ]}
     />
@@ -118,8 +136,7 @@ const SignInPage = (props) => {
           setError('');
           setPassword('');
           setConfirmPassword('');
-          setUsername('');
-          
+          setUsername('');   
         }}
       >
         {isSignIn ? (

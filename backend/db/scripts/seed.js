@@ -63,7 +63,7 @@ const runSeed = async () => {
       "color": "Brown and White",
       "weight": 50,
       favoriteGame: "Tug of War",
-    favoriteTreat: "Dried pig ear",
+    favoriteTreat: "Pig Ear",
       "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
       "imageUrl": "https://cdn.britannica.com/84/232784-050-1769B477/Siberian-Husky-dog.jpg"
   });
@@ -77,7 +77,7 @@ const runSeed = async () => {
     "color": "Blue and White",
     "weight": 25,
     favoriteGame: "Fetch",
-    favoriteTreat: "Dental Treats",
+    favoriteTreat: "Beef Liver",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
     "imageUrl": "https://www.alxnow.com/files/2022/03/AWLA-Lilac-1.jpg"
   });
@@ -147,7 +147,7 @@ const runSeed = async () => {
     "color": "White and Brown spots",
     "weight": 25,
     favoriteGame: "Fetch",
-    favoriteTreat: "Dental Treats",
+    favoriteTreat: "Bacon",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
     "imageUrl": "https://assets.orvis.com/is/image/orvisprd/AdobeStock_67705847"
   })

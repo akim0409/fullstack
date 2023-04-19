@@ -10,8 +10,9 @@ const createUser = async (req, res) => {
   if (existingUser) {
     res.status(409).json({ message: "Username already exists" });
   } else {
-    await User.createAuth(req.body);
-    res.status(201).json({ message: "User created" });
+    const user = await User.createAuth(req.body);
+    const token = jwt.sign({ username: user.username }, "mysecretprivatekey");
+    res.status(201).cookie("token", token).json({ token });
   }
 };
 

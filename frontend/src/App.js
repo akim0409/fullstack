@@ -24,7 +24,6 @@ const App = () => {
           <Route path="/dog/update/:dogId" element={<DogUpdatePage sessionToken={sessionToken} />} />
           <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />} />
           <Route path="/dates" Component={DogDateListPage} /> 
-
         </Routes>
       </div>
     </BrowserRouter>

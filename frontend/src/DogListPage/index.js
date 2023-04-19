@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "../services";
-import DogItem from "./DogItem";
 import DogSection from "./DogSection";
 
 const DogListPage = (props) => {

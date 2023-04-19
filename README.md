@@ -89,18 +89,22 @@ TODO:
     + 2. delete the cookie from the browser
   + make sign out dropdown pop out of username
 + [ ] create association between dogs and Date
-+ add owned property in GET dog/:dogId
++ [X] add owned property in GET dog/:dogId
   + on dog show page,
     + if the user owned this dog, render edit button
-+ create dog update page
-+ add dropdowns
-+ add submit button and implement submit  
-+ create dog create page
++ [X] create dog update page
++ [X] add dropdowns
++ [X] add submit button and implement submit  
++ [X] create dog create page
   + reuse the update form?
++ [ ] signup form validations
++ [ ] update/create dog form validations
+
+
 HOMEWORK
-+ implement dog create page handleSubmit, handleCancelClick
-+ make the title a prop for create/update
-+ the seeds should be created with valid dropdown values
++ [X] implement dog create page handleSubmit, handleCancelClick
++ [X] make the title a prop for create/update
++ [X] the seeds should be created with valid dropdown values
   
 
 

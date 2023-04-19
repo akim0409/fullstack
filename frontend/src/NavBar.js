@@ -16,6 +16,7 @@ const NavBar = (props) => {
             <img
               className="h-[64px]"
               src="https://raw.githubusercontent.com/Hey-Programmers/htmelle-demo-site/main/images/dog_logo.png"
+              alt="Logo"
             />
             <div className="ml-2 text-4xl font-semibold text-sky-200">
               Barkr
@@ -62,8 +63,14 @@ const NavBar = (props) => {
                       setIsOpen(false);
                     }}
                   >
-                    sign out
+                    Sign Out
                   </div>
+                  <Link
+                    className="cursor-pointer flex w-full items-center justify-center text-sm px-3 py-2 hover:underline text-sky-800"
+                    to='/dog/new'
+                  >
+                    Add Doggy
+                  </Link>
                 </div>
               </div>
               
