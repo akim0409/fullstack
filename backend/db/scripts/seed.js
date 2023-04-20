@@ -68,19 +68,19 @@ const runSeed = async () => {
       "imageUrl": "https://cdn.britannica.com/84/232784-050-1769B477/Siberian-Husky-dog.jpg"
   });
 
-  await testUser.createDog({
-    "name": "Daisy",
-    "breed": "French Bulldog",
-    "sex": "Female",
-    "fixed": true,
-    "age": 3,
-    "color": "Blue and White",
-    "weight": 25,
-    favoriteGame: "Fetch",
-    favoriteTreat: "Beef Liver",
-    "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-    "imageUrl": "https://www.alxnow.com/files/2022/03/AWLA-Lilac-1.jpg"
-  });
+  // await testUser.createDog({
+  //   "name": "Daisy",
+  //   "breed": "French Bulldog",
+  //   "sex": "Female",
+  //   "fixed": true,
+  //   "age": 3,
+  //   "color": "Blue and White",
+  //   "weight": 25,
+  //   favoriteGame: "Fetch",
+  //   favoriteTreat: "Beef Liver",
+  //   "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
+  //   "imageUrl": "https://www.alxnow.com/files/2022/03/AWLA-Lilac-1.jpg"
+  // });
 
   await alvinUser.createDog({
     "name": "Bella",

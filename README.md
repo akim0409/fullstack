@@ -101,10 +101,17 @@ TODO:
   + [ ] POST /dates
   + [ ] UPDATE /dates/:dateId
 + [ ] create association between dogs and Date
-+ [ ] update/create dog form validations
++ [X] update/create dog form validations
   + [X] refactor DropdownField (don't include any error state)
   + [X] refactor TextAreaField (include error state)
-  + [ ] show validations errors on submit / block submit
+  + [X] show validations errors on submit / block submit
++ [ ] if dog image url is invalid, use some placeholder image
++ [ ] add footer to site
+  + logo
+  + by Autumn Kim
+  + buttons to go to parts of site (dogs show, dog create)
+  + https://structy.net/
++ [ ] if the user has no dogs, show the AddDog component
   
 
 
