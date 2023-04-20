@@ -49,7 +49,7 @@ const DogCreatePage = (props) => {
           favoriteTreat: "",
           imageUrl: "",
         }}
-        title="Create Profile"
+        title="Create Dog"
         handleSubmit={handleSubmit}
         handleCancelClick={() => {
           navigate('/');

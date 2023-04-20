@@ -49,7 +49,7 @@ const DogUpdatePage = (props) => {
     <div className="flex flex-1 justify-center items-center bg-sky-100">
      <DogForm 
         dog={dog}
-        title="Edit Profile"
+        title="Edit Dog"
         handleSubmit={handleSubmit}
         handleCancelClick={() => {
           navigate(`/dog/${params.dogId}`);

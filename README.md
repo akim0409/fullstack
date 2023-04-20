@@ -73,11 +73,6 @@ TODO:
   + max number dogs (number)
   + date (https://sequelize.org/docs/v6/core-concepts/model-basics/#dates)
 + [X] create dates in the seeds
-+ [] create Date endpoints
-  + [X] GET /dates 
-  + [X] DELETE /dates/:dateId
-  + [ ] POST /dates
-  + [ ] UPDATE /dates/:dateId
 + [X] create "My Dogs" vs "Dogs on Barkr" on dog list page  
 + [X] create date list page
   + frontend route /dates
@@ -88,7 +83,6 @@ TODO:
     + 1. setSessionToken to null
     + 2. delete the cookie from the browser
   + make sign out dropdown pop out of username
-+ [ ] create association between dogs and Date
 + [X] add owned property in GET dog/:dogId
   + on dog show page,
     + if the user owned this dog, render edit button
@@ -97,14 +91,20 @@ TODO:
 + [X] add submit button and implement submit  
 + [X] create dog create page
   + reuse the update form?
-+ [ ] signup form validations
-+ [ ] update/create dog form validations
-
-
-HOMEWORK
++ [X] signup form validations
 + [X] implement dog create page handleSubmit, handleCancelClick
 + [X] make the title a prop for create/update
 + [X] the seeds should be created with valid dropdown values
++ [] create Date endpoints
+  + [X] GET /dates 
+  + [X] DELETE /dates/:dateId
+  + [ ] POST /dates
+  + [ ] UPDATE /dates/:dateId
++ [ ] create association between dogs and Date
++ [ ] update/create dog form validations
+  + [X] refactor DropdownField (don't include any error state)
+  + [X] refactor TextAreaField (include error state)
+  + [ ] show validations errors on submit / block submit
   
 
 
