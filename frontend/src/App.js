@@ -8,6 +8,7 @@ import DogShowPage from "./DogShowPage";
 import DogDateListPage from "./DogDateListPage";
 import DogUpdatePage from "./DogUpdatePage";
 import DogCreatePage from "./DogCreatePage";
+import Footer from "./Footer";
 
 const App = () => {
   const cookieToken = Cookies.get('token');
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />} />
           <Route path="/dates" Component={DogDateListPage} /> 
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

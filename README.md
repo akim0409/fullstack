@@ -112,6 +112,7 @@ TODO:
   + buttons to go to parts of site (dogs show, dog create)
   + https://structy.net/
 + [ ] if the user has no dogs, show the AddDog component
++ [ ] style desktop menu links if active
   
 
 
