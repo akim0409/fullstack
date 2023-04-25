@@ -127,7 +127,10 @@ const SignInPage = (props) => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center flex-1 bg-sky-100">
+    <div className="flex flex-col items-center justify-center flex-1 bg-sky-100 pb-64">
+      <div className="max-w-lg text-center leading-loose my-24 font-ubuntu text-3xl text-sky-800/80 font-semibold">
+        Find play dates for your furry friend with <span className="ml-1 text-5xl text-orange-400 font-bold">Bar<span className="text-sky-600">kr</span></span>
+      </div>
       {isSignIn ? signInForm : signUpForm}
       <div
         className="my-3 text-stone-500 cursor-pointer select-none"

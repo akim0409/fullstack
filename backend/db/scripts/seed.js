@@ -40,7 +40,7 @@ const runSeed = async () => {
 
   // console.table(await User.findAll({ raw: true }));
 
-  await testUser.createDog({
+ const max = await testUser.createDog({
     name: "Max",
     breed: "Golden Retriever",
     sex: "Male",
@@ -54,7 +54,7 @@ const runSeed = async () => {
     imageUrl: "https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk2MzI1NjA0Mjg5Njg0Nzg0/golden-retriever-names.png",
   })
 
-  await testUser.createDog({
+  const skyler = await testUser.createDog({
       "name": "Skyler",
       "breed": "Siberian Husky",
       "sex": "Female",
@@ -310,13 +310,20 @@ const runSeed = async () => {
     date: new Date()
   })
 
-  await DogDate.create({
+  const testDate = await DogDate.create({
     location: 'Prospect Park, Breeze Hill',
     activity: 'Frisbee',
     maxNumberDogs: 4,
     date: new Date()
-  })
+  });
 
+  await testDate.addGuest(max);
+  await testDate.addGuest(skyler)
+  console.log(await testDate.getGuests({raw: true}));
+
+  // console.log(await max.getDates({raw: true}));
+
+  
   // console.log(await DogDate.findAll({raw: true}));
 };
 

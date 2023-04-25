@@ -26,7 +26,7 @@ const DogListPage = (props) => {
   const allDogs = dogs.filter((dog) => dog.owned === undefined);
 
   return (
-    <div className="flex flex-col items-center bg-sky-100 px-4">
+    <div className="flex flex-col items-center bg-sky-100 px-4 pb-64">
       <DogSection dogs={ownedDogs} addDog>
         <i className="mr-2 fa-solid fa-heart text-sky-600"></i>
         My Dogs

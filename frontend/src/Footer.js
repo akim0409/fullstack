@@ -16,8 +16,20 @@ const Footer = () => {
             </div>
           </Link>
           <div className="text-white">
-            <i className="text-2xl mr-4 fa-brands fa-linkedin hover:text-orange-400 cursor-pointer"></i>
-            <i className="text-2xl fa-brands fa-github hover:text-orange-400 cursor-pointer"></i>
+            <a
+              href="https://www.linkedin.com/in/autumn-k-a855a013b/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i className="text-2xl mr-4 fa-brands fa-linkedin hover:text-orange-400 cursor-pointer"></i>
+            </a>
+            <a
+              href="https://github.com/akim0409"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i className="text-2xl fa-brands fa-github hover:text-orange-400 cursor-pointer"></i>
+            </a>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between text-lg">
@@ -32,12 +44,6 @@ const Footer = () => {
               </Link>
               <Link
                 className="mr-4 my-1 font-light text-slate-400 hover:text-orange-400"
-                to="/dates"
-              >
-                Dates
-              </Link>
-              <Link
-                className="my-1 font-light text-slate-400 hover:text-orange-400"
                 to="/dates"
               >
                 Dates

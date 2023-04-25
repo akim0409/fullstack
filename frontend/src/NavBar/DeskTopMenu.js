@@ -1,19 +1,23 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const DeskTopMenu = (props) => {
   const { session, signOut } = props;
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+
+
+
   return (
     <div className="ml-4 justify-between items-center max-w-xs flex-1 hidden sm:flex">
       <Link
-        className="text-sky-100 text-xl sm:text-2xl hover:text-orange-300"
+        className={location.pathname === "/" ? "text-orange-400 text-xl sm:text-2xl" : "text-sky-100 text-xl sm:text-2xl hover:text-orange-300"}
         to="/"
       >
         Dogs
       </Link>
       <Link
-        className="text-sky-100 text-xl sm:text-2xl hover:text-orange-300"
+        className={location.pathname === "/dates" ? "text-orange-400 text-xl sm:text-2xl" : "text-sky-100 text-xl sm:text-2xl hover:text-orange-300"}
         to="/dates"
       >
         Dates
@@ -58,7 +62,7 @@ const DeskTopMenu = (props) => {
         </>
       ) : (
         <Link
-          className="text-sky-100 text-xl sm:text-2xl hover:text-orange-300"
+          className={location.pathname === "/sign-in" ? "text-orange-400 text-xl sm:text-2xl" : "text-sky-100 text-xl sm:text-2xl hover:text-orange-300"}
           to="/sign-in"
         >
           Sign In

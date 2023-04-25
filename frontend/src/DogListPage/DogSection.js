@@ -12,7 +12,7 @@ const DogSection = (props) => {
   const dogItems = dogs.map((dog) => <DogItem key={dog.id} dog={dog} />)
 
   if (addDog) {
-    dogItems.push(<AddDog />)
+    dogItems.push(<AddDog key="add-dog-card"/>)
   }
   return <div className="mt-16">
     <div className="text-3xl text-sky-700 font-ubuntu border-b-2 border-orange-400 p-2 mb-6">

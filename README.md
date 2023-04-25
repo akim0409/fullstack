@@ -95,26 +95,34 @@ TODO:
 + [X] implement dog create page handleSubmit, handleCancelClick
 + [X] make the title a prop for create/update
 + [X] the seeds should be created with valid dropdown values
-+ [] create Date endpoints
-  + [X] GET /dates 
-  + [X] DELETE /dates/:dateId
-  + [ ] POST /dates
-  + [ ] UPDATE /dates/:dateId
-+ [ ] create association between dogs and Date
 + [X] update/create dog form validations
   + [X] refactor DropdownField (don't include any error state)
   + [X] refactor TextAreaField (include error state)
   + [X] show validations errors on submit / block submit
-+ [ ] if dog image url is invalid, use some placeholder image
-+ [ ] add footer to site
++ [X] add footer to site
   + logo
   + by Autumn Kim
   + buttons to go to parts of site (dogs show, dog create)
   + https://structy.net/
-+ [ ] if the user has no dogs, show the AddDog component
-+ [ ] style desktop menu links if active
-  
++ [X] if the user has no dogs, show the AddDog component  
++ [X] if dog image url is invalid, use some placeholder image
+  + create a DogImage component that renders `<img>`
+    + inside the component do a fetch request to the imageUrl 
+      + if you get back 200, use the imageUrl otherwise display some default
++ [X] style desktop menu links if active
++ [X] fix footer buttons
+  + [X] remove duplicate dates
+  + [X] add linkedin/github links
++ [X] create association between dogs and Date
 
++ [] create Date endpoints
+  + [X] GET /dates 
+  + [ ] GET /dates/:dateId 
+  + [X] DELETE /dates/:dateId
+  + [ ] POST /dates
+  + [ ] UPDATE /dates/:dateId
+  + [ ] POST /dates/:dateId/dogs/:dogId
+      + adds a dog to a date
 
 
 Features:
