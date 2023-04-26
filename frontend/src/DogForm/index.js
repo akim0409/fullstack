@@ -287,13 +287,13 @@ const DogForm = (props) => {
               setFavoriteGame(e.target.value);
             }}
             items={[
-              "Agility Training",
-              "Chase the Prey",
+              "Running",
               "Digging",
               "Fetch",
               "Hide & Seek",
               "Swimming",
               "Tug of War",
+              "Frisbee"
             ]}
           />
         </div>

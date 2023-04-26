@@ -174,7 +174,7 @@ const runSeed = async () => {
     "age": 7,
     "color": "Black and White",
     "weight": 44,
-    favoriteGame: "Agility Training",
+    favoriteGame: "Frisbee",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
     "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F03%2F02%2Fborder-collie-green-field-268313239-2000.jpeg"
@@ -190,7 +190,7 @@ const runSeed = async () => {
     "age": 3,
     "color": "Blue and White",
     "weight": 25,
-    favoriteGame: "Chase the Prey",
+    favoriteGame: "Frisbee",
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
     "imageUrl": "https://www.alxnow.com/files/2022/03/AWLA-Lilac-1.jpg"
@@ -298,7 +298,7 @@ const runSeed = async () => {
 
   await DogDate.create({
     location: '42 candy mountain',
-    activity: 'foodge',
+    activity: 'Fetch',
     maxNumberDogs: 3,
     date: new Date('2023-04-15 14:29:00')
   });

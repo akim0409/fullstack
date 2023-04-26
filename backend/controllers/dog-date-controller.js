@@ -4,7 +4,13 @@ const associations = require("../db/models/associations");
 
 const getDogDates = async (req, res) => {
   const dogDates = await DogDate.findAll();
-  res.status(200).json(dogDates);
+  const newDates = [];
+
+  for (let date of dogDates) {
+    newDates.push({...date.get({plain: true}),  numberDogs: await date.countGuests() })
+  }
+
+  res.status(200).json(newDates);
 };
 
 const getDogDateById = async (req, res) => {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "../services";
+import DogDateItem from "./DogDateItem";
 
 const DogDateListPage = () => {
   const [dogDates, setDogDates] = useState([]);
@@ -19,26 +20,13 @@ const DogDateListPage = () => {
     fetchDogDates();
   }, [])
 
-  const dogDateListItems = dogDates.map(dogDate => {
-    return <div key={dogDate.id}>
-      <div>
-        {dogDate.date}
-      </div>
-      <div>
-        {dogDate.location}
-      </div>
-      <div>
-        {dogDate.activity}
-      </div>
-      <div>
-        {dogDate.maxNumberDogs}
-      </div>
-    </div>
-  })
+  const dogDateListItems = dogDates.map(dogDate => <DogDateItem dogDate={dogDate} key={dogDate.id} />);
+
+  
 
   return (
     <div className="flex justify-center bg-sky-100 px-4">
-      <div className="flex justify-center flex-wrap max-w-5xl w-full mt-24">{dogDateListItems}</div>
+      <div className="flex flex-col items-center max-w-4xl w-full mt-24">{dogDateListItems}</div>
     </div>
   )
 };
