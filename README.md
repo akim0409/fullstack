@@ -114,15 +114,16 @@ TODO:
   + [X] remove duplicate dates
   + [X] add linkedin/github links
 + [X] create association between dogs and Date
-
-+ [] create Date endpoints
++ [X] create Date endpoints
   + [X] GET /dates 
-  + [ ] GET /dates/:dateId 
+  + [X] GET /dates/:dateId 
   + [X] DELETE /dates/:dateId
-  + [ ] POST /dates
-  + [ ] UPDATE /dates/:dateId
-  + [ ] POST /dates/:dateId/dogs/:dogId
+  + [X] POST /dates
+  + [X] UPDATE /dates/:dateId
+  + [X] POST /dates/:dateId/dogs/:dogId
       + adds a dog to a date
+      + return error if date is full
+  
 
 
 Features:

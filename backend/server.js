@@ -21,7 +21,11 @@ app.get("/dogs/:dogId", SessionMiddleware.applySession, DogController.getDogById
 app.post("/dogs", SessionMiddleware.applySession, DogController.createDog);
 app.put("/dogs/:dogId", SessionMiddleware.applySession, DogController.updateDogById);
 app.get("/dates", DogDateController.getDogDates);
-app.delete("/dates/:dateId", DogDateController.deleteDogDateById);
+app.get("/dates/:dateId", DogDateController.getDogDateById);
+app.post("/dates", SessionMiddleware.applySession, DogDateController.createDogDate);
+app.put("/dates/:dateId", SessionMiddleware.applySession, DogDateController.updateDogDateById);
+app.delete("/dates/:dateId", SessionMiddleware.applySession, DogDateController.deleteDogDateById);
+app.post("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.addDogToDogDate);
 
 const port = 3001;
 app.listen(port, () => {
