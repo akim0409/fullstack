@@ -19,7 +19,7 @@ const ActivityIcon = (props) => {
     "Tug of War": "fa-bone-break",
   };
 
-  return <i className={`text-9xl scale-[135%] text-sky-600/80 fa-solid ${icon[activity]}`}></i>;
+  return <i className={`text-8xl sm:text-9xl scale-[135%] text-sky-600/80 fa-solid ${icon[activity]}`}></i>;
 };
 
 const DogDateItem = (props) => {
@@ -27,25 +27,30 @@ const DogDateItem = (props) => {
 
   const dateObj = new Date(dogDate.date);
 
+  // + [ ] Date list page
+  // + [ ] fix mobile styling of items
+  // + [ ] tweak colors
+  // + [ ] alternate b/w orange/blue
+
   return (
-    <div className="flex relative justify-between bg-sky-600/80 rounded-lg w-full p-8 m-4 overflow-hidden">
+    <div className="flex relative justify-between bg-sky-600/80 rounded-lg w-full px-2 py-4 sm:p-8 m-4 overflow-hidden">
       <div className="absolute top-0 left-0 z-0 w-full h-full flex justify-center items-center">
         <ActivityIcon activity={dogDate.activity}/>
       </div>
       <div className="flex flex-col z-10">
-        <div className="font-ubuntu  text-3xl text-white">
+        <div className="font-ubuntu text-2xl text-white sm:text-3xl">
           {dogDate.activity}
         </div>
-        <div className="text-sky-900 text-xl mt-2">{dogDate.location}</div>
+        <div className="text-sky-900 text-base sm:text-xl mt-2">{dogDate.location}</div>
       </div>
       <div className="flex flex-col items-end justify-center z-10">
-        <div className="text-sky-900 text-xl">
+        <div className="text-sky-900 sm:text-xl">
           {dogDate.numberDogs}/{dogDate.maxNumberDogs} dogs
-          <i className="ml-2 text-2xl fa-solid fa-paw"></i>
+          <i className="ml-2 text-xl sm:text-2xl fa-solid fa-paw"></i>
         </div>
-        <div className="text-sky-900 text-xl mt-2">
+        <div className="text-sky-900 sm:text-xl mt-2">
           {getFormattedDate(dateObj)}
-          <i className="ml-2 text-2xl fa-solid fa-clock"></i>
+          <i className="ml-2 text-xl sm:text-2xl fa-solid fa-clock"></i>
         </div>
       </div>
     </div>

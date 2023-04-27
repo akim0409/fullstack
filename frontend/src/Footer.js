@@ -50,9 +50,12 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col justify-center font-ubuntu text-slate-400 text-sm font-light">
+          <div className="flex flex-col justify-center items-end font-ubuntu text-slate-400 text-sm font-light">
             <div>Ⓒ 2023 Barkr by Autumn Kim</div>
+            <div className="flex items-center">
             <div>All treats reserved.</div>
+            <i className="ml-1 fa-solid fa-bone"></i>
+              </div>
           </div>
         </div>
       </div>
