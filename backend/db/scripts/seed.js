@@ -82,7 +82,7 @@ const runSeed = async () => {
   //   "imageUrl": "https://www.alxnow.com/files/2022/03/AWLA-Lilac-1.jpg"
   // });
 
-  await alvinUser.createDog({
+  const bella = await alvinUser.createDog({
     "name": "Bella",
     "breed": "Yorkshire Terrier",
     "sex": "Female",
@@ -96,7 +96,7 @@ const runSeed = async () => {
     "imageUrl": "https://a-z-animals.com/media/2021/08/Yorkshire-Terrier-1024x535.jpg"
   })
 
-  await alvinUser.createDog({
+  const cooper = await alvinUser.createDog({
     "name": "Cooper",
     "breed": "Afghan Hound",
     "sex": "Male",
@@ -110,7 +110,7 @@ const runSeed = async () => {
     "imageUrl": "https://www.dogswiz.com/wp-content/uploads/sites/6/2022/03/Afghan-Hound.jpg"
   })
 
-  await alvinUser.createDog({
+  const milo = await alvinUser.createDog({
     "name": "Milo",
     "breed": "Australian Kelpie",
     "sex": "Male",
@@ -124,7 +124,7 @@ const runSeed = async () => {
     "imageUrl": "https://www.thesprucepets.com/thmb/BVWTmYnvlvOfh7Q3wuUAoC3GCM0=/2119x0/filters:no_upscale():strip_icc()/GettyImages-713869107-39e43f2374514fc89b06680938abd7bf.jpg"
   })
 
-  await alvinUser.createDog({
+  const coco = await alvinUser.createDog({
     "name": "Coco",
     "breed": "Airedale Terrier",
     "sex": "Female",
@@ -138,7 +138,7 @@ const runSeed = async () => {
     "imageUrl": "https://static.fajnyzwierzak.pl/media/uploads/media_image/original/wpis/1115/hodowla-airedale-terriera.jpg"
   })
 
-  await autumnUser.createDog({
+  const tucker = await autumnUser.createDog({
     "name": "Tucker",
     "breed": "Dalmatian",
     "sex": "Male",
@@ -152,7 +152,7 @@ const runSeed = async () => {
     "imageUrl": "https://assets.orvis.com/is/image/orvisprd/AdobeStock_67705847"
   })
 
-  await autumnUser.createDog({
+  const oliver = await autumnUser.createDog({
     "name": "Oilver",
     "breed": "Bernese Mountain",
     "sex": "Male",
@@ -166,7 +166,7 @@ const runSeed = async () => {
     "imageUrl": "https://cdn.britannica.com/49/161649-050-3F458ECF/Bernese-mountain-dog-grass.jpg"
   })
 
-  await autumnUser.createDog({
+  const daisy = await autumnUser.createDog({
     "name": "Daisy",
     "breed": "Border Collie",
     "sex": "Female",
@@ -182,7 +182,7 @@ const runSeed = async () => {
 
 
   //
-  await autumnUser.createDog({
+  const otto = await autumnUser.createDog({
     "name": "Otto",
     "breed": "French Bulldog",
     "sex": "Female",
@@ -296,14 +296,14 @@ const runSeed = async () => {
 
 
 
-  await DogDate.create({
+  const testDate2 = await DogDate.create({
     location: '42 candy mountain',
     activity: 'Fetch',
     maxNumberDogs: 3,
     date: new Date('2023-04-15 14:29:00')
   });
 
-  await DogDate.create({
+  const testDate3 = await DogDate.create({
     location: 'Central Park,Bow Bridge',
     activity: 'Tug of War',
     maxNumberDogs: 2,
@@ -313,12 +313,22 @@ const runSeed = async () => {
   const testDate = await DogDate.create({
     location: 'Prospect Park, Breeze Hill',
     activity: 'Frisbee',
-    maxNumberDogs: 4,
+    maxNumberDogs: 7,
     date: new Date()
   });
 
   await testDate.addGuest(max);
-  await testDate.addGuest(skyler)
+  await testDate.addGuest(skyler);
+  await testDate.addGuest(bella);
+  await testDate.addGuest(cooper);
+  await testDate.addGuest(milo);
+  await testDate.addGuest(coco);
+  await testDate.addGuest(tucker);
+  await testDate2.addGuest(oliver);
+  await testDate3.addGuest(daisy);
+  await testDate3.addGuest(otto);
+
+
   console.log(await testDate.getGuests({raw: true}));
 
   // console.log(await max.getDates({raw: true}));

@@ -123,6 +123,15 @@ TODO:
   + [X] POST /dates/:dateId/dogs/:dogId
       + adds a dog to a date
       + return error if date is full
++ [X] Date list page
+  + [X] fix mobile styling of items
+  + [X] tweak colors
+  + [X] alternate b/w orange/blue
++ [X] add loading spinner to all fetch pages 
++ [X] Date show page
+  + [X] clicking on a guest goes to their profile
++ [X] Loading state for sign in/sign up
+
   
 
 

@@ -14,7 +14,7 @@ const getDogs = async (req, res) => {
       const dogObj = dog.get({plain: true});
       dogObjects.push({ ...dogObj, owned });
     }
-    res.status(200).json(dogObjects);
+      res.status(200).json(dogObjects);
   } else {
     res.status(200).json(dogs);
   }
@@ -45,7 +45,9 @@ const getDogById = async (req, res) => {
   if (req.user) {
     const owned = await req.user.hasDog(dog);
     const dogObj = dog.get({ plain: true });
-    res.status(200).json({ ...dogObj, owned });
+
+      res.status(200).json({ ...dogObj, owned });
+    
   } else {
     res.status(200).json(dog);
   }

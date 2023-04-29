@@ -45,7 +45,7 @@ const SignInPage = (props) => {
   };
 
   const handleFormSignIn = async () => {
-    handleSignIn({ username, password });
+    return handleSignIn({ username, password });
   };
 
   const handleDemoSignIn = async () => {

@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 const AuthForm = (props) => {
   const { title, fields, handleSubmit, buttonLabel, error, handleDemoSignIn } =
     props;
+  const [isLoading, setIsLoading] = useState(false);
 
   const fieldItems = fields.map((field, idx) => {
     return (
@@ -23,34 +26,38 @@ const AuthForm = (props) => {
       </div>
       <div className="h-1 text-sm text-red-500 text-center my-4">{error}</div>
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-
-           const somethingInvalid = fields.some((field) => {
-            return !(field.validate());
+          const somethingInvalid = fields.some((field) => {
+            return !field.validate();
           });
-
+          
           if (somethingInvalid) {
             return;
           } else {
-            handleSubmit();
+            setIsLoading(true);
+            await handleSubmit();
+            setIsLoading(false);
           }
         }}
       >
         {fieldItems}
         <button
           type="submit"
-          className="my-4 text-lg rounded-md bg-orange-400 px-2 py-2 text-white w-full hover:bg-orange-500"
+          className="relative my-4 text-lg rounded-md bg-orange-400 px-2 py-2 text-white w-full hover:bg-orange-500"
         >
           {buttonLabel}
+          {isLoading ? (
+            <div className="absolute right-0 top-0 bottom-0 flex items-center pr-4">
+              <i className="text-orange-200 fa-duotone fa-spinner-third animate-spin"></i>
+            </div>
+          ) : null}
         </button>
         {handleDemoSignIn ? (
           <>
             <div className="flex justify-center items-center px-4">
               <div className="flex-1 h-px bg-stone-300"></div>
-              <div className="mx-4 text-stone-400">
-                or 
-              </div>
+              <div className="mx-4 text-stone-400">or</div>
               <div className="flex-1 h-px bg-stone-300"></div>
             </div>
             <button

@@ -15,7 +15,6 @@ app.use(cookieParser());
 
 app.post("/users", UserController.createUser);
 app.post("/users/session", UserController.createSession);
-app.get("/users/session", UserController.getSession);
 app.get("/dogs", SessionMiddleware.applySession, DogController.getDogs);
 app.get("/dogs/:dogId", SessionMiddleware.applySession, DogController.getDogById);
 app.post("/dogs", SessionMiddleware.applySession, DogController.createDog);

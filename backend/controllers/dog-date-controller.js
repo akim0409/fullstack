@@ -7,7 +7,10 @@ const getDogDates = async (req, res) => {
   const newDates = [];
 
   for (let date of dogDates) {
-    newDates.push({...date.get({plain: true}),  numberDogs: await date.countGuests() })
+    newDates.push({
+      ...date.get({ plain: true }),
+      numberDogs: await date.countGuests(),
+    });
   }
 
   res.status(200).json(newDates);
@@ -19,7 +22,14 @@ const getDogDateById = async (req, res) => {
   });
 
   if (date) {
-    res.status(200).json(date);
+    const newDate = {
+      ...date.get({ plain: true }),
+      numberDogs: await date.countGuests(),
+      guests: await date.getGuests()
+    };
+    res.status(200).json(newDate);
+      
+
   } else {
     res.status(404).json({ message: "DogDate not found" });
   }
@@ -40,11 +50,9 @@ const updateDogDateById = async (req, res) => {
   });
 
   if (!date) {
-    res
-      .status(404)
-      .json({
-        message: `DogDate with ID: ${req.params.dateId} does not exist`,
-      });
+    res.status(404).json({
+      message: `DogDate with ID: ${req.params.dateId} does not exist`,
+    });
     return;
   }
 
@@ -86,7 +94,7 @@ const addDogToDogDate = async (req, res) => {
   const totalGuests = await date.countGuests();
 
   if (date.maxNumberDogs === totalGuests) {
-    res.status(409).json({ message: "DogDate is full"});
+    res.status(409).json({ message: "DogDate is full" });
   } else if (req.user && req.user.id === owner.id) {
     await date.addGuest(dog);
     res.status(200).json({
@@ -105,5 +113,5 @@ module.exports = {
   createDogDate,
   updateDogDateById,
   deleteDogDateById,
-  addDogToDogDate
+  addDogToDogDate,
 };
