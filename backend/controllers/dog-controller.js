@@ -1,9 +1,6 @@
 const Dog = require("../db/models/Dog")
 const associations = require("../db/models/associations");
 
-
-// https://sequelize.org/docs/v6/core-concepts/assocs/#foohasmanybar
-
 const getDogs = async (req, res) => {
   const dogs = await Dog.findAll();
   
