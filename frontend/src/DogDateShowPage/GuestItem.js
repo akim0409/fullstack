@@ -1,14 +1,9 @@
-import { useNavigate } from "react-router-dom";
-
 const GuestItem = (props) => {
-  const navigate = useNavigate();
-  const { guest } = props;
+  const { guest, onClick } = props;
   return (
     <div 
       className="flex flex-col items-center m-4 hover:cursor-pointer"
-      onClick={() => {
-        navigate(`/dog/${guest.id}`)
-      }}
+      onClick={onClick}
     >
       <img
         className="w-[160px] h-[160px] object-cover rounded-full shadow-lg shadow-stone-400"

@@ -326,7 +326,7 @@ const runSeed = async () => {
   await testDate.addGuest(tucker);
   await testDate2.addGuest(oliver);
   await testDate3.addGuest(daisy);
-  await testDate3.addGuest(otto);
+  // await testDate3.addGuest(otto);
 
 
   console.log(await testDate.getGuests({raw: true}));
