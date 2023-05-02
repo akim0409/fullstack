@@ -107,6 +107,29 @@ const addDogToDogDate = async (req, res) => {
   }
 };
 
+const deleteDogFromDogDate = async (req, res) => {
+  const date = await DogDate.findOne({
+    where: { id: req.params.dateId },
+  });
+
+  const dog = await Dog.findOne({
+    where: { id: req.params.dogId },
+  });
+
+  const owner = await dog.getUser();
+
+  if (req.user && req.user.id === owner.id) {
+    await date.removeGuest(dog);
+    res.status(200).json({
+      message: `Dog with ID: ${req.params.dogId} deleted from date ID: ${req.params.dateId}`,
+    });
+  } else {
+    res
+      .status(401)
+      .json({ message: `Not authorized to delete dog id: ${req.params.dogId}` });
+  }
+};
+
 module.exports = {
   getDogDates,
   getDogDateById,
@@ -114,4 +137,5 @@ module.exports = {
   updateDogDateById,
   deleteDogDateById,
   addDogToDogDate,
+  deleteDogFromDogDate
 };

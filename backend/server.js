@@ -25,6 +25,7 @@ app.post("/dates", SessionMiddleware.applySession, DogDateController.createDogDa
 app.put("/dates/:dateId", SessionMiddleware.applySession, DogDateController.updateDogDateById);
 app.delete("/dates/:dateId", SessionMiddleware.applySession, DogDateController.deleteDogDateById);
 app.post("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.addDogToDogDate);
+app.delete("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.deleteDogFromDogDate);
 
 const port = 3001;
 app.listen(port, () => {

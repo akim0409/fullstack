@@ -1,12 +1,12 @@
 const GuestItem = (props) => {
-  const { guest, onClick } = props;
+  const { guest, onClick, border } = props;
   return (
     <div 
-      className="flex flex-col items-center m-4 hover:cursor-pointer"
+      className="flex flex-col items-center mx-4 my-8 hover:cursor-pointer"
       onClick={onClick}
     >
       <img
-        className="w-[160px] h-[160px] object-cover rounded-full shadow-lg shadow-stone-400"
+        className={`w-[160px] h-[160px] object-cover rounded-full shadow-lg shadow-stone-400 ${border ? 'border-[4px] border-yellow-500' : ''}`}
         alt="dog"
         src={guest.imageUrl}
       />

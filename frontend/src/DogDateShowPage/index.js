@@ -11,7 +11,7 @@ const DogDateShowPage = () => {
   });
   const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [addDogs, setAddDogs] = useState([]);
+  const [ownedDogs, setOwnedDogs] = useState([]);
   const navigate = useNavigate();
 
   const fetchDogDateById = useCallback(async () => {
@@ -34,7 +34,7 @@ const DogDateShowPage = () => {
 
     const data = await response.json();
 
-    setAddDogs(data.filter((dog) => dog.owned === true));
+    setOwnedDogs(data.filter((dog) => dog.owned === true));
   }, []);
 
   useEffect(() => {
@@ -47,34 +47,83 @@ const DogDateShowPage = () => {
     guestDogIds.add(guest.id);
   }
 
+  const ownedDogIds = new Set();
+  for (let dog of ownedDogs) {
+    ownedDogIds.add(dog.id);
+  }
+
   const guestItems = isLoading
     ? []
-    : dogDate.guests.map((guest) => (
-        <GuestItem
-          key={guest.id}
-          guest={guest}
-          onClick={() => {
-            navigate(`/dog/${guest.id}`);
-          }}
-        />
-      ));
+    : dogDate.guests
+        .filter((guest) => !ownedDogIds.has(guest.id))
+        .map((guest) => (
+          <GuestItem
+            key={guest.id}
+            guest={guest}
+            onClick={() => {
+              navigate(`/dog/${guest.id}`);
+            }}
+          />
+        ));
 
-  const addDogItems = addDogs
+  const addDogItems = ownedDogs
     .filter((dog) => !guestDogIds.has(dog.id))
     .map((dog) => (
       <div key={dog.id} className="relative">
-        <div className="absolute z-10 rounded-full flex justify-center items-center w-[36px] h-[36px] bg-orange-400 top-2 right-8">
-          <i className="fa-solid fa-plus text-2xl text-white"></i>
+        <div className="absolute w-full text-center text-yellow-500 text-lg font-ubuntu top-[-10px]">
+          <i className="mr-1 fa-solid fa-heart"></i>my dog
+        </div>
+        <div
+          className="absolute z-10 rounded-full flex justify-center items-center w-[36px] h-[36px] bg-sky-700 top-6 right-8 cursor-pointer hover:bg-sky-900"
+          title="Add Dog"
+          onClick={async () => {
+            await apiFetch({
+              path: `/dates/${dogDate.id}/dogs/${dog.id}`,
+              method: "POST",
+            });
+            fetchDogDateById();
+          }}
+        >
+          <i className="fa-solid fa-plus text-2xl text-sky-400"></i>
         </div>
         <div className="opacity-40">
           <GuestItem
+            border
             guest={dog}
-            onClick={async () => {
-              await apiFetch({
-                path: `/dates/${dogDate.id}/dogs/${dog.id}`,
-                method: "POST",
-              });
-              fetchDogDateById();
+            onClick={() => {
+              navigate(`/dog/${dog.id}`);
+            }}
+          />
+        </div>
+      </div>
+    ));
+
+  const removeDogItems = ownedDogs
+    .filter((dog) => guestDogIds.has(dog.id))
+    .map((dog) => (
+      <div key={dog.id} className="relative">
+        <div className="absolute w-full text-center text-yellow-500 text-lg font-ubuntu top-[-10px]">
+          <i className="mr-1 fa-solid fa-heart"></i>my dog
+        </div>
+        <div
+          className="absolute z-10 rounded-full flex justify-center items-center w-[36px] h-[36px] bg-orange-400 top-6 right-8 cursor-pointer hover:bg-orange-600"
+          title="Delete Dog"
+          onClick={async () => {
+            await apiFetch({
+              path: `/dates/${dogDate.id}/dogs/${dog.id}`,
+              method: "DELETE",
+            });
+            fetchDogDateById();
+          }}
+        >
+          <i className="fa-solid fa-trash text-xl text-orange-200"></i>
+        </div>
+        <div className="">
+          <GuestItem
+            border
+            guest={dog}
+            onClick={() => {
+              navigate(`/dog/${dog.id}`);
             }}
           />
         </div>
@@ -100,6 +149,7 @@ const DogDateShowPage = () => {
             </div>
             <div className="flex justify-center flex-wrap mt-10 px-4">
               {guestItems}
+              {removeDogItems}
               {dogDate.numberDogs === dogDate.maxNumberDogs
                 ? null
                 : addDogItems}
