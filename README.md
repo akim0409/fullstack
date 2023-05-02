@@ -132,6 +132,9 @@ TODO:
   + [X] clicking on a guest goes to their profile
 + [X] Loading state for sign in/sign up
 
+
+  + DogDateList
+    + Add an unstyled form to create a DogDate
   
 
 

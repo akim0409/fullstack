@@ -4,14 +4,16 @@ import { apiFetch } from "../services";
 import DogDateItem from "../DogDateListPage/DogDateItem";
 import GuestItem from "./GuestItem";
 import PageLoader from "../PageLoader";
+import AddGuestItem from "./AddGuestItem";
+import RemoveGuestItem from "./RemoveGuestItem";
 
 const DogDateShowPage = () => {
   const [dogDate, setDogDate] = useState({
     guests: [],
   });
-  const params = useParams();
-  const [isLoading, setIsLoading] = useState(true);
   const [ownedDogs, setOwnedDogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const params = useParams();
   const navigate = useNavigate();
 
   const fetchDogDateById = useCallback(async () => {
@@ -69,65 +71,25 @@ const DogDateShowPage = () => {
   const addDogItems = ownedDogs
     .filter((dog) => !guestDogIds.has(dog.id))
     .map((dog) => (
-      <div key={dog.id} className="relative">
-        <div className="absolute w-full text-center text-yellow-500 text-lg font-ubuntu top-[-10px]">
-          <i className="mr-1 fa-solid fa-heart"></i>my dog
-        </div>
-        <div
-          className="absolute z-10 rounded-full flex justify-center items-center w-[36px] h-[36px] bg-sky-700 top-6 right-8 cursor-pointer hover:bg-sky-900"
-          title="Add Dog"
-          onClick={async () => {
-            await apiFetch({
-              path: `/dates/${dogDate.id}/dogs/${dog.id}`,
-              method: "POST",
-            });
-            fetchDogDateById();
-          }}
-        >
-          <i className="fa-solid fa-plus text-2xl text-sky-400"></i>
-        </div>
-        <div className="opacity-40">
-          <GuestItem
-            border
-            guest={dog}
-            onClick={() => {
-              navigate(`/dog/${dog.id}`);
-            }}
-          />
-        </div>
-      </div>
+      <AddGuestItem key={dog.id} dog={dog} onClick={async () => {
+        await apiFetch({
+          path: `/dates/${dogDate.id}/dogs/${dog.id}`,
+          method: "POST",
+        });
+        fetchDogDateById();
+      }}/>
     ));
 
   const removeDogItems = ownedDogs
     .filter((dog) => guestDogIds.has(dog.id))
     .map((dog) => (
-      <div key={dog.id} className="relative">
-        <div className="absolute w-full text-center text-yellow-500 text-lg font-ubuntu top-[-10px]">
-          <i className="mr-1 fa-solid fa-heart"></i>my dog
-        </div>
-        <div
-          className="absolute z-10 rounded-full flex justify-center items-center w-[36px] h-[36px] bg-orange-400 top-6 right-8 cursor-pointer hover:bg-orange-600"
-          title="Delete Dog"
-          onClick={async () => {
-            await apiFetch({
-              path: `/dates/${dogDate.id}/dogs/${dog.id}`,
-              method: "DELETE",
-            });
-            fetchDogDateById();
-          }}
-        >
-          <i className="fa-solid fa-trash text-xl text-orange-200"></i>
-        </div>
-        <div className="">
-          <GuestItem
-            border
-            guest={dog}
-            onClick={() => {
-              navigate(`/dog/${dog.id}`);
-            }}
-          />
-        </div>
-      </div>
+      <RemoveGuestItem key={dog.id} dog={dog} onClick={async () => {
+        await apiFetch({
+          path: `/dates/${dogDate.id}/dogs/${dog.id}`,
+          method: "DELETE",
+        });
+        fetchDogDateById();
+      }}/>
     ));
 
   return (
