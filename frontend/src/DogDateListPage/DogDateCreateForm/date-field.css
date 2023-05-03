@@ -1,0 +1,89 @@
+.rdtPicker {
+  background: #f0f9ff !important;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  border: none !important;
+
+}
+
+.rdtPicker td.rdtActive, .rdtPicker td.rdtActive:hover {
+  background-color: #fcd34d;
+  color: #075985;
+  text-shadow: 0 0 0 rgba(80, 68, 242, 0.25);
+  
+}
+
+
+.rdtPrev {
+  color: #0c4a6e;
+  background: #fb923c;
+  border-radius: 8px 0px 0px 0px;
+  font-size: 16px !important;
+  padding: 8px 0;
+}
+
+.rdtPrev:hover {
+  background: #f97316 !important;
+}
+
+
+.rdtNext {
+  color: #0c4a6e;
+  background: #fb923c;
+  border-radius: 0px 8px 0px 0px;
+  font-size: 16px !important;
+
+  padding: 8px 0;
+}
+
+.rdtNext:hover {
+  background: #f97316 !important;
+}
+
+.rdtSwitch {
+  color: #ffedd5;
+  background: #fb923c;
+}
+
+.rdtSwitch:hover {
+  background: #f97316 !important;
+
+}
+
+.dow {
+  color: #0369a1;
+  padding: 4px 8px;
+}
+
+.rdtDay {
+  color: #f97316
+}
+
+.rdtTimeToggle {
+  color: #bae6fd;
+  background: #0284c7;
+  border-radius: 0px 0px 8px 8px;
+  padding: 6px 0px;
+}
+
+
+.rdtTimeToggle:hover {
+  background: #0369a1 !important;
+
+}
+
+.rdtBtn {
+  color: #0369a1; 
+  margin-top: 5px;
+}
+
+.rdtCount {
+  color: #f97316
+}
+
+.rdtCounterSeparator {
+  color: #0369a1; 
+  line-height: 120px;
+}
+

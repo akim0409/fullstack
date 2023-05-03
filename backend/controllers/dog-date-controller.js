@@ -37,8 +37,8 @@ const getDogDateById = async (req, res) => {
 
 const createDogDate = async (req, res) => {
   if (req.user) {
-    await DogDate.create(req.body);
-    res.status(201).json({ message: "DogDate created" });
+    const date = await DogDate.create(req.body);
+    res.status(201).json(date);
   } else {
     res.status(401).json({ message: "Must be signed in" });
   }

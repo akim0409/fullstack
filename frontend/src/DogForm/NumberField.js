@@ -10,7 +10,7 @@ const NumberField = (props) => {
 
 
   return (
-    <>
+    <div>
       <div className="flex justify-between items-center text-red-600 text-sm">
         <div className={`ml-2 mb-2 font-ubuntu text-lg text-${labelColor}`}>
           {label}
@@ -27,7 +27,7 @@ const NumberField = (props) => {
         }}
         value={value}
       />
-    </>
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { apiFetch } from "../services";
 import DogDateItem from "./DogDateItem";
 import PageLoader from "../PageLoader";
+import DogDateCreateForm from "./DogDateCreateForm";
 
 const DogDateListPage = () => {
   const [dogDates, setDogDates] = useState([]);
@@ -47,12 +48,14 @@ const DogDateListPage = () => {
 
   return (
     <div className="flex flex-col items-center bg-sky-100 px-4 pb-80">
+      <DogDateCreateForm />
+      
       {isLoading ? (
         <PageLoader />
       ) : (
         <>
-          <div className="leading-loose my-6 sm:my-14 font-ubuntu text-2xl sm:text-3xl text-sky-800 font-semibold max-w-4xl">
-            Doggy Dates
+          <div className="leading-loose my-6 sm:my-14 font-ubuntu text-2xl sm:text-3xl text-sky-800 max-w-4xl">
+            Available Doggy Dates
           </div>
           <div className="flex flex-col max-w-4xl w-full mb-12 sm:mb-24">
             {dogDateListItems}

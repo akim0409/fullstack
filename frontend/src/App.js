@@ -9,6 +9,7 @@ import DogDateListPage from "./DogDateListPage";
 import DogDateShowPage from "./DogDateShowPage";
 import DogUpdatePage from "./DogUpdatePage";
 import DogCreatePage from "./DogCreatePage";
+import DogDateCreatePage from "./DogDateListPage/DogDateCreateForm";
 import Footer from "./Footer";
 
 const App = () => {
@@ -27,7 +28,6 @@ const App = () => {
           <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />} />
           <Route path="/dates" Component={DogDateListPage} />
           <Route path="/dates/:dateId" Component={DogDateShowPage} />
-          {/* <Route path="/dates/:dateId" element={<DogDateShowPage sessionToken={sessionToken}/>} /> */}
         </Routes>
         <Footer />
       </div>

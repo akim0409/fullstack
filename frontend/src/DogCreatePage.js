@@ -3,39 +3,32 @@ import DogForm from "./DogForm";
 import { apiFetch } from "./services";
 import { useEffect } from "react";
 
-
-
 const DogCreatePage = (props) => {
-  const {sessionToken} = props;
+  const { sessionToken } = props;
 
   const navigate = useNavigate();
 
-
   const handleSubmit = async (dogData) => {
     const response = await apiFetch({
-      path: '/dogs',
+      path: "/dogs",
       method: "POST",
       body: dogData,
     });
 
     if (response.status === 201) {
-      navigate('/');
+      navigate("/");
     }
-
-    //401
-
   };
 
   useEffect(() => {
     if (sessionToken === null) {
-      navigate('/');
+      navigate("/");
     }
   }, [navigate, sessionToken]);
 
-
   return (
     <div className="flex flex-1 justify-center items-center bg-sky-100">
-      <DogForm 
+      <DogForm
         dog={{
           name: "",
           breed: "",
@@ -52,11 +45,11 @@ const DogCreatePage = (props) => {
         title="Create Dog"
         handleSubmit={handleSubmit}
         handleCancelClick={() => {
-          navigate('/');
+          navigate("/");
         }}
       />
     </div>
-  )
+  );
 };
 
 export default DogCreatePage;

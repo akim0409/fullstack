@@ -131,10 +131,14 @@ TODO:
 + [X] Date show page
   + [X] clicking on a guest goes to their profile
 + [X] Loading state for sign in/sign up
-
-
-  + DogDateList
-    + Add an unstyled form to create a DogDate
++ [X] DogDateList
+  + Add an unstyled form to create a DogDate
++ [X] Implement date picker
+  + https://www.npmjs.com/package/react-datetime
++ [X] Style DogDateCreateForm
++ [ ] Fix default value dropdown bug
++ [ ] Implement DogDateCreateForm frontend validations
++ [ ] Put a spinner in the create button when the request is loading
   
 
 
