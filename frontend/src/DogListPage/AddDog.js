@@ -13,7 +13,7 @@ const AddDog = () => {
       <div className="h-48 w-80 rounded-t-lg flex justify-center items-center">
       <i className="text-8xl fa-solid fa-plus"></i>
       </div>
-      <div className="p-4 font-semibold flex flex-col rounded-b-lg">
+      <div className="p-4 font-semibold flex flex-col rounded-b-lg justify-center items-center">
         <div className="flex justify-between items-center">
           <div className="font-bold text-2xl">Add Dog</div>
         </div>

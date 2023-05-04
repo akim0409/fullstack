@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { apiFetch } from "../services";
 import PageLoader from "../PageLoader";
+import DogShowImage from "./DogShowImage";
 
 const DogShowPage = () => {
   const [dog, setDog] = useState(null);
@@ -33,11 +34,6 @@ const DogShowPage = () => {
       ) : (
         <div className="w-full border border-stone-300 rounded-md bg-white max-w-5xl p-16 font-nanum">
           <div className="flex justify-between">
-            <img
-              className="w-[180px] h-[180px] object-cover rounded-full shadow-lg shadow-stone-400"
-              alt="dog"
-              src={dog.imageUrl}
-            />
             <div className="mx-6 flex flex-col justify-center flex-1">
               <div
                 className={

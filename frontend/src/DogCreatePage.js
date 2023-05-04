@@ -38,8 +38,8 @@ const DogCreatePage = (props) => {
           color: "",
           weight: 0,
           personality: "",
-          favoriteGame: "",
-          favoriteTreat: "",
+          favoriteGame: "Running",
+          favoriteTreat: "Bacon",
           imageUrl: "",
         }}
         title="Create Dog"

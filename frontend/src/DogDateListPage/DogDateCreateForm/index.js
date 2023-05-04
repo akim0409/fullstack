@@ -9,7 +9,7 @@ import DateField from "./DateField";
 const DogDateCreateForm = () => {
   const [date, setDate] = useState(new Date());
   const [location, setLocation] = useState("");
-  const [activity, setActivity] = useState("Fetch");
+  const [activity, setActivity] = useState("Digging");
   const [maxNumberDogs, setMaxNumberDogs] = useState(2);
   const [validationsPassed, setValidationsPassed] = useState(new Set());
 
@@ -88,13 +88,13 @@ const DogDateCreateForm = () => {
               setActivity(e.target.value);
             }}
             items={[
-              "Running",
               "Digging",
               "Fetch",
-              "Hide & Seek",
-              "Swimming",
-              "Tug of War",
               "Frisbee",
+              "Hide & Seek",
+              "Running",
+              "Swimming",
+              "Tug of War"
             ]}
           />
           <NumberField
@@ -121,12 +121,23 @@ const DogDateCreateForm = () => {
           <DateField date={date} setDate={setDate} />
         </div>
       </div>
-      <button
+      {isFormValid ? (
+        <button
         className="bg-orange-400 font-ubuntu text-xl text-white rounded-md px-8 py-2 mx-8 mb-8"
         type="submit"
       >
         Create
       </button>
+      ) : (
+        <div
+        className="bg-stone-400 text-center font-ubuntu text-xl text-stone-600 rounded-md px-8 py-2 mx-8 mb-8"
+        type="submit"
+      >
+        Create
+      </div>
+      
+      )}
+      
     </form>
   );
 };

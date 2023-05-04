@@ -136,8 +136,8 @@ TODO:
 + [X] Implement date picker
   + https://www.npmjs.com/package/react-datetime
 + [X] Style DogDateCreateForm
-+ [ ] Fix default value dropdown bug
-+ [ ] Implement DogDateCreateForm frontend validations
++ [X] Fix default value dropdown bug
++ [X] Implement DogDateCreateForm frontend validations
 + [ ] Put a spinner in the create button when the request is loading
   
 
