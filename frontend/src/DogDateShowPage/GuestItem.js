@@ -16,9 +16,9 @@ const GuestItem = (props) => {
         onError={() => {
           setIsValidUrl(false);
         }}
-      /> :  <div className={`w-[160px] h-[160px] rounded-full flex justify-center items-center shadow-lg shadow-stone-400 text-orange-800 bg-orange-400/80 ${border ? 'border-[4px] border-yellow-500' : ''}`}>
+      /> :  <div className={`w-[160px] h-[160px] rounded-full flex justify-center items-center shadow-lg shadow-stone-400 text-orange-700 bg-orange-300/80 ${border ? 'border-[4px] border-yellow-500' : ''}`}>
       <div className="flex flex-col items-center">
-        <i className="text-5xl fa-solid fa-bone-break mb-2"></i>
+        <i className="text-5xl fa-solid text-orange-700/50 fa-bone-break mb-2"></i>
         <div className="text-xs">dog image not found</div>
       </div>
     </div>

@@ -68,19 +68,6 @@ const runSeed = async () => {
       "imageUrl": "https://cdn.britannica.com/84/232784-050-1769B477/Siberian-Husky-dog.jpg"
   });
 
-  // await testUser.createDog({
-  //   "name": "Daisy",
-  //   "breed": "French Bulldog",
-  //   "sex": "Female",
-  //   "fixed": true,
-  //   "age": 3,
-  //   "color": "Blue and White",
-  //   "weight": 25,
-  //   favoriteGame: "Fetch",
-  //   favoriteTreat: "Beef Liver",
-  //   "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
-  //   "imageUrl": "https://www.alxnow.com/files/2022/03/AWLA-Lilac-1.jpg"
-  // });
 
   const bella = await alvinUser.createDog({
     "name": "Bella",
@@ -178,6 +165,21 @@ const runSeed = async () => {
     favoriteTreat: "Dental Treats",
     "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
     "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F03%2F02%2Fborder-collie-green-field-268313239-2000.jpeg"
+  })
+
+
+    autumnUser.createDog({
+    "name": "George",
+    "breed": "Border Collie",
+    "sex": "Male",
+    "fixed": true,
+    "age": 2,
+    "color": "Black and White",
+    "weight": 50,
+    favoriteGame: "Frisbee",
+    favoriteTreat: "Dental Treats",
+    "personality": "Weary of strangers at first, but becomes very warm onces comfortable. Not comfortable in big groups, prefers a one-on-one date. Tends to cry when away from humans.",
+    "imageUrl": ""
   })
 
 
@@ -329,11 +331,8 @@ const runSeed = async () => {
   // await testDate3.addGuest(otto);
 
 
-  console.log(await testDate.getGuests({raw: true}));
-
+  // console.log(await testDate.getGuests({raw: true}));
   // console.log(await max.getDates({raw: true}));
-
-  
   // console.log(await DogDate.findAll({raw: true}));
 };
 

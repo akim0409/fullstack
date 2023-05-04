@@ -12,6 +12,7 @@ const DogDateCreateForm = () => {
   const [activity, setActivity] = useState("Digging");
   const [maxNumberDogs, setMaxNumberDogs] = useState(2);
   const [validationsPassed, setValidationsPassed] = useState(new Set());
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -45,7 +46,6 @@ const DogDateCreateForm = () => {
       },
     });
 
-    
     if (response.status === 201) {
       const data = await response.json();
       navigate(`/dates/${data.id}`);
@@ -53,15 +53,18 @@ const DogDateCreateForm = () => {
   };
 
   return (
-  
     <form
       className="flex flex-col bg-white rounded-lg mx-2 mt-24 mb-24 "
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        handleSubmit();
+        setIsLoading(true);
+        await handleSubmit();
+        setIsLoading(false);
       }}
     >
-      <div className="mt-4 text-center font-ubuntu text-3xl text-sky-800">Create Doggy Date</div>
+      <div className="mt-4 text-center font-ubuntu text-3xl text-sky-800">
+        Create Doggy Date
+      </div>
       <div className="flex flex-wrap sm:flex-nowrap justify-center px-4 py-8">
         <div className="flex w-full sm:w-80 flex-col justify-between mx-4">
           <TextField
@@ -94,7 +97,7 @@ const DogDateCreateForm = () => {
               "Hide & Seek",
               "Running",
               "Swimming",
-              "Tug of War"
+              "Tug of War",
             ]}
           />
           <NumberField
@@ -122,22 +125,26 @@ const DogDateCreateForm = () => {
         </div>
       </div>
       {isFormValid ? (
-        <button
-        className="bg-orange-400 font-ubuntu text-xl text-white rounded-md px-8 py-2 mx-8 mb-8"
-        type="submit"
-      >
-        Create
-      </button>
+        <div className="px-8 pb-8">
+          <button
+            className="relative w-full bg-orange-400 font-ubuntu text-xl text-white rounded-md px-8 py-2 hover:bg-orange-500"
+            type="submit"
+          >
+            Create
+            {isLoading ? (
+            <div className="absolute right-0 top-0 bottom-0 flex items-center pr-4">
+              <i className="text-orange-200 fa-duotone fa-spinner-third animate-spin"></i>
+            </div>
+          ) : null}
+          </button>
+        </div>
       ) : (
         <div
-        className="bg-stone-400 text-center font-ubuntu text-xl text-stone-600 rounded-md px-8 py-2 mx-8 mb-8"
-        type="submit"
-      >
-        Create
-      </div>
-      
+          className="bg-stone-400 text-center font-ubuntu text-xl text-stone-600 rounded-md px-8 py-2 mx-8 mb-8"
+        >
+          Create
+        </div>
       )}
-      
     </form>
   );
 };
