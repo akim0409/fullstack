@@ -34,6 +34,7 @@ const DogShowPage = () => {
       ) : (
         <div className="w-full border border-stone-300 rounded-md bg-white max-w-5xl p-16 font-nanum">
           <div className="flex justify-between">
+          <DogShowImage imageUrl={dog.imageUrl}/>
             <div className="mx-6 flex flex-col justify-center flex-1">
               <div
                 className={
