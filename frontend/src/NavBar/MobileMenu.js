@@ -23,7 +23,7 @@ const MobileMenu = (props) => {
               setIsOpen(false);
             }
           }}
-          className="fixed top-0 right-0 left-0 bottom-0"
+          className="fixed top-0 right-0 left-0 bottom-0 z-20"
         >
           <div className="fixed top-0 right-0 bg-sky-800 shadow-lg p-8 pr-24 flex flex-col text-sky-100 text-2xl">
             <i

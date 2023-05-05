@@ -62,7 +62,7 @@ const DogDateCreateForm = () => {
         setIsLoading(false);
       }}
     >
-      <div className="mt-4 text-center font-ubuntu text-3xl text-sky-800">
+      <div className="mt-4 text-center font-ubuntu text-2xl sm:text-3xl text-sky-800">
         Create Doggy Date
       </div>
       <div className="flex flex-wrap sm:flex-nowrap justify-center px-4 py-8">

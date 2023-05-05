@@ -57,7 +57,7 @@ const DogDateItem = (props) => {
         <div className="font-ubuntu text-2xl text-white sm:text-3xl">
           {dogDate.activity}
         </div>
-        <div className={`${textColor} text-base sm:text-xl mt-2`}>
+        <div className={`${textColor} w-32 sm:w-full text-base sm:text-xl mt-2`}>
           {dogDate.location}
         </div>
       </div>

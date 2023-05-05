@@ -306,7 +306,7 @@ const runSeed = async () => {
   });
 
   const testDate3 = await DogDate.create({
-    location: 'Central Park,Bow Bridge',
+    location: 'Central Park, Bow Bridge',
     activity: 'Tug of War',
     maxNumberDogs: 2,
     date: new Date()

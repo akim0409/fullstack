@@ -26,33 +26,32 @@ const DogShowPage = () => {
     fetchDogById();
   }, [fetchDogById]);
 
-
   return (
     <div className="py-16 flex justify-center bg-sky-100">
       {isLoading ? (
         <PageLoader />
       ) : (
-        <div className="w-full border border-stone-300 rounded-md bg-white max-w-5xl p-16 font-nanum">
-          <div className="flex justify-between">
-          <DogShowImage imageUrl={dog.imageUrl}/>
+        <div className="w-full border border-stone-300 rounded-md bg-white max-w-5xl p-8 md:p-16 m-6 font-nanum">
+          <div className="flex flex-col items-center sm:flex-row sm:place-items-stretch">
+            <DogShowImage imageUrl={dog.imageUrl} />
             <div className="mx-6 flex flex-col justify-center flex-1">
               <div
                 className={
                   dog.sex === "Female"
-                    ? "pl-4 py-3 border-l-8 border-sky-600"
-                    : "pl-4 py-2 border-l-8 border-orange-400"
+                    ? "sm:pl-4 py-3 sm:border-l-8 border-sky-600"
+                    : "sm:pl-4 py-2 sm:border-l-8 border-orange-400"
                 }
               >
                 <div
                   className={
                     dog.sex === "Female"
-                      ? "font-ubuntu my-2 text-5xl font-bold text-orange-400"
-                      : "font-ubuntu my-2 text-5xl font-bold text-sky-700"
+                      ? "font-ubuntu my-2 text-5xl font-bold text-orange-400 text-center sm:text-left"
+                      : "font-ubuntu my-2 text-5xl font-bold text-sky-700 text-center sm:text-left"
                   }
                 >
                   {dog.name}
                 </div>
-                <div className="flex text-xl my-2">
+                <div className="flex sm:text-xl my-2">
                   <div className="text-stone-600">{dog.breed}</div>
                   <div className="h-8 w-px bg-stone-400 mx-2"></div>
                   <div className="text-stone-600">age {dog.age}</div>
@@ -83,9 +82,9 @@ const DogShowPage = () => {
           <div className="flex pb-2 mb-4 text-2xl text-stone-500 font-ubuntu font-semibold mb-4 border-b-2 border-orange-400">
             About
           </div>
-          <div className="flex justify-around mb-10">
+          <div className="flex flex-col sm:flex-row sm:justify-around mb-10">
             <div className="">
-              <div className="my-4 flex text-lg">
+              <div className="my-4 flex flex-wrap text-lg justify-center">
                 <div className="font-semibold w-48 text-stone-600">
                   {dog.sex === "Female" ? (
                     <i className="text-orange-400 mx-2 w-6 fa-solid fa-venus">
@@ -96,44 +95,44 @@ const DogShowPage = () => {
                   )}
                   Sex
                 </div>
-                <div className="text-stone-500">{dog.sex}</div>
+                <div className="text-stone-500 w-40">{dog.sex}</div>
               </div>
-              <div className="my-4 flex text-lg">
+              <div className="my-4 flex flex-wrap text-lg  justify-center">
                 <div className="font-semibold w-48 text-stone-600">
                   <i className="text-sky-600 mx-2 w-6 fa-solid fa-paw"></i>
                   Fixed
                 </div>
-                <div className="text-stone-500">{dog.fixed ? "Yes" : "No"}</div>
+                <div className="text-stone-500 w-40">{dog.fixed ? "Yes" : "No"}</div>
               </div>
-              <div className="my-4 flex text-lg">
+              <div className="my-4 flex flex-wrap text-lg justify-center">
                 <div className="font-semibold w-48 text-stone-600">
                   <i className="text-orange-400 mx-2 w-6 fa-solid fa-tennis-ball"></i>
                   Favorite Game
                 </div>
-                <div className="text-stone-500">{dog.favoriteGame}</div>
+                <div className="text-stone-500 w-40">{dog.favoriteGame}</div>
               </div>
             </div>
-            <div>
-              <div className="my-4 flex text-lg">
+            <div className="">
+              <div className="my-4 flex flex-wrap text-lg justify-center">
                 <div className="font-semibold w-48 text-stone-600">
                   <i className="text-sky-600 mx-2 w-6 fa-solid fa-palette"></i>
                   Color
                 </div>
-                <div className="text-stone-500">{dog.color}</div>
+                <div className="text-stone-500 w-40">{dog.color}</div>
               </div>
-              <div className="my-4 flex text-lg">
+              <div className="my-4 flex flex-wrap text-lg justify-center">
                 <div className="font-semibold w-48 text-stone-600">
                   <i className="text-orange-400 mx-2 w-6 fa-solid fa-weight-scale"></i>
                   Weight
                 </div>
-                <div className="text-stone-500">{dog.weight} pounds</div>
+                <div className="text-stone-500 w-40">{dog.weight} pounds</div>
               </div>
-              <div className="my-4 flex text-lg">
+              <div className="my-4 flex flex-wrap text-lg justify-center">
                 <div className="font-semibold w-48 text-stone-600">
                   <i className="text-sky-600 mx-2 w-6 fa-solid fa-bone"></i>
                   Favorite Treat
                 </div>
-                <div className="text-stone-500">{dog.favoriteTreat}</div>
+                <div className="text-stone-500 w-40">{dog.favoriteTreat}</div>
               </div>
             </div>
           </div>
