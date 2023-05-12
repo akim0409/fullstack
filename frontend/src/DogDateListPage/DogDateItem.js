@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 const getFormattedDate = (dateObj) => {
   const string = dateObj.toDateString();
   const monthAndDate = string.split(" ").slice(1, 3).join(" ");
@@ -35,17 +33,18 @@ const DogDateItem = (props) => {
     activityColor,
     textColor,
     iconColor,
+    onClick,
+    hover,
   } = props;
-  const navigate = useNavigate();
 
   const dateObj = new Date(dogDate.date);
 
   return (
     <div
-      onClick={() => {
-        navigate(`/dates/${dogDate.id}`);
-      }}
-      className={`flex relative justify-between ${bgColor} rounded-lg px-2 py-4 m-4 overflow-hidden cursor-pointer transition-all hover:scale-105 sm:p-8`}
+      onClick={onClick}
+      className={`flex relative justify-between ${bgColor} rounded-lg px-2 py-4 m-4 overflow-hidden sm:p-8 ${
+        hover ? "cursor-pointer transition-all hover:scale-105" : ""
+      }`}
     >
       <div className="absolute top-0 left-0 z-0 w-full h-full flex justify-center items-center">
         <ActivityIcon
@@ -57,7 +56,9 @@ const DogDateItem = (props) => {
         <div className="font-ubuntu text-2xl text-white sm:text-3xl">
           {dogDate.activity}
         </div>
-        <div className={`${textColor} w-32 sm:w-full text-base sm:text-xl mt-2`}>
+        <div
+          className={`${textColor} w-32 sm:w-full text-base sm:text-xl mt-2`}
+        >
           {dogDate.location}
         </div>
       </div>

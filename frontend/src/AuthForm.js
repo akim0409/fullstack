@@ -9,7 +9,7 @@ const AuthForm = (props) => {
     return (
       <div key={idx}>
         <input
-          className="rounded-md border border-stone-200 py-2 px-2 my-3 text-stone-500 placeholder:text-stone-300 w-full hover:border-sky-400"
+          className="rounded-md border border-stone-200 py-2 px-2 my-3 text-stone-500 placeholder:text-stone-300 w-full hover:border-sky-500"
           placeholder={field.name}
           value={field.value}
           onChange={field.handleChange}
@@ -21,7 +21,7 @@ const AuthForm = (props) => {
 
   return (
     <div className="flex flex-col border border-stone-300 rounded-md p-6 bg-white">
-      <div className="text-3xl text-center text-stone-500 font-semibold font-ubuntu w-80">
+      <div className="text-3xl text-center text-stone-500 font-ubuntu w-80">
         {title}
       </div>
       <div className="h-1 text-sm text-red-500 text-center my-4">{error}</div>

@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.dogs-list-top {
+  border-bottom-left-radius: none;
+  border-bottom-right-radius: none;
+}
+
+@media only screen and (min-width: 820px) {
+  .dogs-list-top {
+    border-bottom-left-radius: 80% 180px;
+    border-bottom-right-radius: 80% 180px;
+  }
+}

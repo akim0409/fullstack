@@ -139,19 +139,19 @@ TODO:
 + [X] Fix default value dropdown bug
 + [X] Implement DogDateCreateForm frontend validations
 + [X] Put a spinner in the create button when the request is loading
-+ [ ] Date card on date show page has hover effect but navigates nowhere
-  + refactor onClick to receive through props so we can optionally apply onclick
-+ [ ] Images and Banners
++ [X] Images and Banners
   + https://www.freepik.com/
   + DogsListPage
-    + [ ] image
-    + [ ] banner text 
-  + DoggyDatesListPage
-    + [ ] image
-    + [ ] banner text 
-  + SignInPage
-    + [ ] image
+    + [X] image
     + [X] banner text 
+  + SignInPage
+    + [X] image
+    + [X] banner text 
+  + DoggyDatesListPage
+    + [X] image
+    + [X] banner text 
++ [X] Date card on date show page has hover effect but navigates nowhere
+  + refactor onClick to receive through props so we can optionally apply onclick
     
 
 

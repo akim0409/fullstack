@@ -54,7 +54,7 @@ const DogDateCreateForm = () => {
 
   return (
     <form
-      className="flex flex-col bg-white rounded-lg mx-2 mt-24 mb-24 "
+      className="flex flex-col bg-white rounded-lg mx-2 mt-24 mb-4 sm:mb-24 "
       onSubmit={async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -62,7 +62,7 @@ const DogDateCreateForm = () => {
         setIsLoading(false);
       }}
     >
-      <div className="mt-4 text-center font-ubuntu text-2xl sm:text-3xl text-sky-800">
+      <div className="mt-4 text-center font-ubuntu text-2xl sm:text-3xl text-sky-600">
         Create Doggy Date
       </div>
       <div className="flex flex-wrap sm:flex-nowrap justify-center px-4 py-8">

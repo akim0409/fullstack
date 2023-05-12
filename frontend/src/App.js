@@ -9,7 +9,6 @@ import DogDateListPage from "./DogDateListPage";
 import DogDateShowPage from "./DogDateShowPage";
 import DogUpdatePage from "./DogUpdatePage";
 import DogCreatePage from "./DogCreatePage";
-import DogDateCreatePage from "./DogDateListPage/DogDateCreateForm";
 import Footer from "./Footer";
 
 const App = () => {
@@ -26,7 +25,7 @@ const App = () => {
           <Route path="/dog/:dogId" Component={DogShowPage} />
           <Route path="/dog/update/:dogId" element={<DogUpdatePage sessionToken={sessionToken} />} />
           <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />} />
-          <Route path="/dates" Component={DogDateListPage} />
+          <Route path="/dates" element={<DogDateListPage sessionToken={sessionToken}/>} />
           <Route path="/dates/:dateId" Component={DogDateShowPage} />
         </Routes>
         <Footer />
