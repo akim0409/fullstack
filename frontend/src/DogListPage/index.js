@@ -36,7 +36,7 @@ const DogListPage = (props) => {
         <>
           <div className="pb-16 px-2 bg-sky-700 w-full flex flex-col justify-center items-center dogs-list-top">
             <div className="mb-10 mt-14 font-ubuntu text-3xl sm:text-4xl font-semibold text-center text-sky-200 leading-relaxed">
-              Find friends for your dog with{" "}
+            Find play dates for your furry friend with{" "}
               <span className="text-orange-400 font-semibold text-3xl sm:text-5xl">
                 Bar
               </span>

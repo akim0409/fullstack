@@ -56,11 +56,11 @@ const DogDateListPage = (props) => {
 
   return (
     <div className="flex flex-col items-center bg-sky-100 px-4 pb-80">
-      <div className="font-ubuntu text-3xl mt-20 text-sky-600 py-2 px-6 border-b-2 border-orange-500">
+      {/* <div className="font-ubuntu text-3xl mt-20 text-sky-600 py-2 px-6 border-b-2 border-orange-500">
       <i className="fa-solid fa-bone mr-4"></i>
       Create a playdate for your best friend
       <i className="fa-solid fa-paw ml-4"></i>
-      </div>
+      </div> */}
       <div className="mt-20">
         <img className="w-[500px]" src={bigDogsPlaying} alt="dogsPlaying" />
       </div>
