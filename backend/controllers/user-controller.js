@@ -14,7 +14,10 @@ const createUser = async (req, res) => {
       { username: user.username, userId: user.id },
       "mysecretprivatekey"
     );
-    res.status(201).cookie("token", token).json({ token });
+    res
+      .status(201)
+      .cookie("token", token, { domain: "autumn-kim-barkr-app.com" })
+      .json({ token });
   }
 };
 
@@ -31,7 +34,12 @@ const createSession = async (req, res) => {
       "mysecretprivatekey"
     );
 
-    res.status(200).cookie("token", token).json({ token });
+    res
+      .status(200)
+      .cookie("token", token, {
+        domain: "autumn-kim-barkr-app.com",
+      })
+      .json({ token });
   } else {
     res.status(401).json({ message: "Session not authorized" });
   }
