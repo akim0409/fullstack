@@ -13,6 +13,9 @@ app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Barkr backend API'});
+});
 app.post("/users", UserController.createUser);
 app.post("/users/session", UserController.createSession);
 app.get("/dogs", SessionMiddleware.applySession, DogController.getDogs);

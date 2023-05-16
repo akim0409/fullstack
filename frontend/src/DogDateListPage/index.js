@@ -56,11 +56,6 @@ const DogDateListPage = (props) => {
 
   return (
     <div className="flex flex-col items-center bg-sky-100 px-4 pb-80">
-      {/* <div className="font-ubuntu text-3xl mt-20 text-sky-600 py-2 px-6 border-b-2 border-orange-500">
-      <i className="fa-solid fa-bone mr-4"></i>
-      Create a playdate for your best friend
-      <i className="fa-solid fa-paw ml-4"></i>
-      </div> */}
       <div className="mt-20">
         <img className="w-[500px]" src={bigDogsPlaying} alt="dogsPlaying" />
       </div>
@@ -73,11 +68,11 @@ const DogDateListPage = (props) => {
       ) : (
         <div className="w-full flex flex-col items-center">
           <div className="leading-loose mt-20 mb-14 font-ubuntu text-2xl sm:text-3xl text-sky-600 max-w-4xl">
-            Available Doggy Dates
+            Available Doggy-Dates
           </div>
           {
             sessionToken ? null :
-            <Link to="/sign-in" className="max-w-4xl w-full text-right px-4 text-sm sm:text-base text-stone-400 hover:text-sky-700 font-nanum">Create Doggy Date
+            <Link to="/sign-in" className="max-w-4xl w-full text-right px-4 text-sm sm:text-base text-stone-400 hover:text-sky-700 font-nanum">Create Doggy-Date
               <i className="fa-regular fa-calendar ml-2"></i>
             </Link>
           }
