@@ -16,6 +16,7 @@ app.use(cookieParser());
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Barkr backend API'});
 });
+
 app.post("/users", UserController.createUser);
 app.post("/users/session", UserController.createSession);
 app.get("/dogs", SessionMiddleware.applySession, DogController.getDogs);
@@ -30,6 +31,7 @@ app.delete("/dates/:dateId", SessionMiddleware.applySession, DogDateController.d
 app.post("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.addDogToDogDate);
 app.delete("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.deleteDogFromDogDate);
 
+// TODO:
 // const port = 3001;
 const port = 80;
 app.listen(port, () => {

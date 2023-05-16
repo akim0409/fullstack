@@ -57,3 +57,41 @@ $ npm run build
   + Upload the contents of `/frontend/build` into the bucket
 + Go to [AWS cloudfront distribution](https://us-east-1.console.aws.amazon.com/cloudfront/v3/home?region=us-east-1#/distributions/E10HTH6ICIZE57)
   + Create invalidation for `/*`
+
+
+### Backend
+
+```
+$ cd backend
+$ git push
+```
+
++ Go to [AWS Console](https://us-east-1.console.aws.amazon.com/console/home?).
++ Go to EC2
+  + Go to [barkr-backend](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#InstanceDetails:instanceId=i-0fef5a4d4222c49f8)
+  + Click Connect and follow SSH instructions
+    + be sure to cd into `.pem` location before connecting to server
+
+In SSH terminal, turn off server:
+
+```
+$ cd fullstack/backend
+$ pm2 stop all
+```
+
+Then, pull latest from github and restart server
+
+```
+$ git pull
+$ pm2 start server.js
+```
+
+
+ TODO:
+ + [X] update title from capstone project to "Barker app"
+  + change in frontend/public/index.html
+ + [X] update favicon with custom image
+  + change in frontend/public/favicon.ico (check size*)
+ + [X] update your backend seeds
+
+ exit
