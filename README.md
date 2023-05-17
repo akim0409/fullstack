@@ -87,11 +87,4 @@ $ pm2 start server.js
 ```
 
 
- TODO:
- + [X] update title from capstone project to "Barker app"
-  + change in frontend/public/index.html
- + [X] update favicon with custom image
-  + change in frontend/public/favicon.ico (check size*)
- + [X] update your backend seeds
-
- exit
+when signed out (refresh)

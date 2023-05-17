@@ -36,10 +36,7 @@ const createSession = async (req, res) => {
 
     res
       .status(200)
-      .cookie("token", token, {
-        //TODO
-        domain: "autumn-kim-barkr-app.com",
-      })
+      .cookie("token", token)
       .json({ token });
   } else {
     res.status(401).json({ message: "Session not authorized" });

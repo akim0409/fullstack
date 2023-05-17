@@ -32,8 +32,8 @@ app.post("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateCo
 app.delete("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.deleteDogFromDogDate);
 
 // TODO:
-// const port = 3001;
-const port = 80;
+const port = 3001;
+// const port = 80;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });

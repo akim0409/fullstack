@@ -1,9 +1,10 @@
 const getFormattedDate = (dateObj) => {
   const string = dateObj.toDateString();
   const monthAndDate = string.split(" ").slice(1, 3).join(" ");
+  const year = string.split(" ").slice(3);
   const timeString = dateObj.toLocaleTimeString();
   const hourAndMinute = timeString.split(":").slice(0, 2).join(":");
-  return monthAndDate + " " + hourAndMinute + timeString.slice(-2);
+  return monthAndDate + " " + year + " " + hourAndMinute + timeString.slice(-2);
 };
 
 const ActivityIcon = (props) => {
@@ -42,11 +43,18 @@ const DogDateItem = (props) => {
   return (
     <div
       onClick={onClick}
-      className={`flex relative justify-between ${bgColor} rounded-lg px-2 py-4 m-4 overflow-hidden sm:p-8 ${
+      className={`relative flex justify-between items-center ${bgColor} rounded-lg px-2 py-4 m-4 overflow-hidden sm:p-8 ${
         hover ? "cursor-pointer transition-all hover:scale-105" : ""
       }`}
     >
-      <div className="absolute top-0 left-0 z-0 w-full h-full flex justify-center items-center">
+      {dogDate.numberDogs === dogDate.maxNumberDogs ? (
+        <div
+          className={`z-20 absolute left-0 w-full text-center text-4xl sm:text-5xl text-slate-600/70 font-semibold`}
+        >
+          FULL
+        </div>
+      ) : null}
+      <div className="z-10 absolute top-0 left-0 w-full h-full flex justify-center items-center">
         <ActivityIcon
           activity={dogDate.activity}
           activityColor={activityColor}
