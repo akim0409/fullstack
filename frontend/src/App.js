@@ -12,7 +12,8 @@ import DogCreatePage from "./DogCreatePage";
 import Footer from "./Footer";
 
 const App = () => {
-  const cookieToken = Cookies.get('token');
+  const cookieToken = Cookies.get('token', { path: "", domain: ".autumn-kim-barkr-app.com" });
+  console.log(cookieToken);
   const [sessionToken, setSessionToken] = useState(cookieToken === undefined ? null : cookieToken);
 
   return (
