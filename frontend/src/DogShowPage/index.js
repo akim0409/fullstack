@@ -51,7 +51,7 @@ const DogShowPage = () => {
                 >
                   {dog.name}
                 </div>
-                <div className="flex sm:text-xl my-2">
+                <div className="flex justify-center sm:justify-start sm:text-xl my-2">
                   <div className="text-stone-600">{dog.breed}</div>
                   <div className="h-8 w-px bg-stone-400 mx-2"></div>
                   <div className="text-stone-600">age {dog.age}</div>
@@ -85,7 +85,7 @@ const DogShowPage = () => {
           <div className="flex flex-col sm:flex-row sm:justify-around mb-10">
             <div className="">
               <div className="my-4 flex flex-wrap text-lg justify-center">
-                <div className="font-semibold w-48 text-stone-600">
+                <div className="font-semibold w-48 text-stone-600 flex justify-center items-center sm:justify-start mr-10">
                   {dog.sex === "Female" ? (
                     <i className="text-orange-400 mx-2 w-6 fa-solid fa-venus">
                       {" "}
@@ -95,44 +95,44 @@ const DogShowPage = () => {
                   )}
                   Sex
                 </div>
-                <div className="text-stone-500 w-40">{dog.sex}</div>
+                <div className="text-stone-500 w-40 flex justify-center items-center sm:justify-start mr-4">{dog.sex}</div>
               </div>
-              <div className="my-4 flex flex-wrap text-lg  justify-center">
-                <div className="font-semibold w-48 text-stone-600">
+              <div className="my-4 flex flex-wrap text-lg justify-center">
+                <div className="font-semibold w-48 text-stone-600 flex justify-center items-center sm:justify-start mr-10">
                   <i className="text-sky-600 mx-2 w-6 fa-solid fa-paw"></i>
                   Fixed
                 </div>
-                <div className="text-stone-500 w-40">{dog.fixed ? "Yes" : "No"}</div>
+                <div className="text-stone-500 w-40 flex justify-center items-center sm:justify-start mr-4">{dog.fixed ? "Yes" : "No"}</div>
               </div>
               <div className="my-4 flex flex-wrap text-lg justify-center">
-                <div className="font-semibold w-48 text-stone-600">
+                <div className="font-semibold w-48 text-stone-600 flex justify-center items-center sm:justify-start mr-10">
                   <i className="text-orange-400 mx-2 w-6 fa-solid fa-tennis-ball"></i>
                   Favorite Game
                 </div>
-                <div className="text-stone-500 w-40">{dog.favoriteGame}</div>
+                <div className="text-stone-500 w-40 flex justify-center items-center sm:justify-start mr-4">{dog.favoriteGame}</div>
               </div>
             </div>
             <div className="">
               <div className="my-4 flex flex-wrap text-lg justify-center">
-                <div className="font-semibold w-48 text-stone-600">
+                <div className="font-semibold w-48 text-stone-600 flex justify-center items-center sm:justify-start mr-10">
                   <i className="text-sky-600 mx-2 w-6 fa-solid fa-palette"></i>
                   Color
                 </div>
-                <div className="text-stone-500 w-40">{dog.color}</div>
+                <div className="text-stone-500 w-40 flex justify-center items-center sm:justify-start mr-4">{dog.color}</div>
               </div>
               <div className="my-4 flex flex-wrap text-lg justify-center">
-                <div className="font-semibold w-48 text-stone-600">
+                <div className="font-semibold w-48 text-stone-600 flex justify-center items-center sm:justify-start mr-10">
                   <i className="text-orange-400 mx-2 w-6 fa-solid fa-weight-scale"></i>
                   Weight
                 </div>
-                <div className="text-stone-500 w-40">{dog.weight} pounds</div>
+                <div className="text-stone-500 w-40 flex justify-center items-center sm:justify-start mr-4">{dog.weight} pounds</div>
               </div>
               <div className="my-4 flex flex-wrap text-lg justify-center">
-                <div className="font-semibold w-48 text-stone-600">
+                <div className="font-semibold w-48 text-stone-600 flex justify-center items-center sm:justify-start mr-10">
                   <i className="text-sky-600 mx-2 w-6 fa-solid fa-bone"></i>
                   Favorite Treat
                 </div>
-                <div className="text-stone-500 w-40">{dog.favoriteTreat}</div>
+                <div className="text-stone-500 w-40 flex justify-center items-center sm:justify-start mr-4">{dog.favoriteTreat}</div>
               </div>
             </div>
           </div>

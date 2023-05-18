@@ -81,6 +81,9 @@ const DogForm = (props) => {
             if (value.length === 0) {
               removeValidated("Name");
               return "can't be empty";
+            } else if (value.length > 10) {
+              removeValidated("Name");
+              return "can't be longer than 10 characters";
             }
             addValidated("Name");
             return "";
@@ -100,6 +103,9 @@ const DogForm = (props) => {
               if (value.length === 0) {
                 removeValidated("Breed");
                 return "can't be empty";
+              } else if (value.length > 10) {
+                removeValidated("Breed");
+                return "can't be longer than 10 characters";
               }
               addValidated("Breed");
               return "";
@@ -118,6 +124,9 @@ const DogForm = (props) => {
               if (value.length === 0) {
                 removeValidated("Color");
                 return "can't be empty";
+              } else if (value.length > 20) {
+                removeValidated("Color");
+                return "can't be longer than 20 characters";
               }
               addValidated("Color");
               return "";
@@ -159,6 +168,9 @@ const DogForm = (props) => {
               if (value <= 0) {
                 removeValidated("Weight");
                 return "can't be less than 1";
+              } else if (value > 150) {
+                removeValidated("Weight");
+                return "can't be over 150";
               }
               addValidated("Weight");
               return "";

@@ -86,6 +86,3 @@ $ git pull
 $ export NODE_ENV=production
 $ pm2 start server.js --update-env
 ```
-
-
-[]when signed out (refresh)
