@@ -24,7 +24,7 @@ const Footer = () => {
               <i className="text-2xl mr-4 fa-brands fa-linkedin hover:text-orange-400 cursor-pointer"></i>
             </a>
             <a
-              href="https://github.com/akim0409"
+              href="https://github.com/akim0409/fullstack"
               target="_blank"
               rel="noreferrer"
             >

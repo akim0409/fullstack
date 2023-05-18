@@ -1,9 +1,7 @@
-// TODO:
-// const BASE_URL = 'http://localhost:3001';
-const BASE_URL = 'http://api.autumn-kim-barkr-app.com';
+import CONFIG from "../config";
 
 export const apiFetch = ({ path, method, body }) => {
-  return fetch(BASE_URL + path, {
+  return fetch(CONFIG.API_URL + path, {
     path,
     method,
     headers: {

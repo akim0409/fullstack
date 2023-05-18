@@ -1,5 +1,6 @@
 const User = require("../db/models/User");
 const jwt = require("jsonwebtoken");
+const CONFIG = require("../config");
 
 const createUser = async (req, res) => {
   const existingUser = await User.findOne({
@@ -16,7 +17,7 @@ const createUser = async (req, res) => {
     );
     res
       .status(201)
-      .cookie("token", token, { domain: "autumn-kim-barkr-app.com" })
+      .cookie("token", token, { domain: CONFIG.CLIENT_DOMAIN })
       .json({ token });
   }
 };
@@ -36,7 +37,7 @@ const createSession = async (req, res) => {
 
     res
       .status(200)
-      .cookie("token", token)
+      .cookie("token", token, { domain: CONFIG.CLIENT_DOMAIN })
       .json({ token });
   } else {
     res.status(401).json({ message: "Session not authorized" });

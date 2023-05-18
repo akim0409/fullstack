@@ -10,10 +10,12 @@ import DogDateShowPage from "./DogDateShowPage";
 import DogUpdatePage from "./DogUpdatePage";
 import DogCreatePage from "./DogCreatePage";
 import Footer from "./Footer";
+import CONFIG from "./config";
+
+console.log(`${CONFIG.ENVIRONMENT} mode`);
 
 const App = () => {
-  const cookieToken = Cookies.get('token', { path: "", domain: ".autumn-kim-barkr-app.com" });
-  console.log(cookieToken);
+  const cookieToken = Cookies.get('token');
   const [sessionToken, setSessionToken] = useState(cookieToken === undefined ? null : cookieToken);
 
   return (
@@ -21,15 +23,15 @@ const App = () => {
       <div className="flex flex-col h-screen font-nanum">
         <NavBar sessionToken={sessionToken} setSessionToken={setSessionToken}/>
         <Routes>
-          <Route path="/sign-in" element={<SignInPage setSessionToken={setSessionToken} />}  />
-          <Route path="/" element={<DogListPage sessionToken={sessionToken}/>} />
+          <Route path="/sign-in" element={<SignInPage setSessionToken={setSessionToken} />}/>
+          <Route path="/" element={<DogListPage sessionToken={sessionToken}/>}/>
           <Route path="/dog/:dogId" Component={DogShowPage} />
-          <Route path="/dog/update/:dogId" element={<DogUpdatePage sessionToken={sessionToken} />} />
-          <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />} />
-          <Route path="/dates" element={<DogDateListPage sessionToken={sessionToken}/>} />
-          <Route path="/dates/:dateId" Component={DogDateShowPage} />
+          <Route path="/dog/update/:dogId" element={<DogUpdatePage sessionToken={sessionToken} />}/>
+          <Route path="/dog/new" element={<DogCreatePage sessionToken={sessionToken} />}/>
+          <Route path="/dates" element={<DogDateListPage sessionToken={sessionToken}/>}/>
+          <Route path="/dates/:dateId" Component={DogDateShowPage}/>
         </Routes>
-        <Footer />
+        <Footer/>
       </div>
     </BrowserRouter>
   );

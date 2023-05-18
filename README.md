@@ -26,12 +26,12 @@ $ npm install
 $ npm run dev
 ```
 
-
 ### Backend
 
 ```plaintext
 $ cd backend
 $ npm install
+$ export NODE_ENV=development
 $ nodemon server.js
 ```
 
@@ -83,6 +83,7 @@ Then, pull latest from github and restart server
 
 ```
 $ git pull
+$ export NODE_ENV=production
 $ pm2 start server.js
 ```
 

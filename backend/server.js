@@ -3,9 +3,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const UserController = require("./controllers/user-controller");
-const DogController= require("./controllers/dog-controller");
+const DogController = require("./controllers/dog-controller");
 const DogDateController = require("./controllers/dog-date-controller")
-const SessionMiddleware= require("./middleware/session-middleware");
+const SessionMiddleware = require("./middleware/session-middleware");
+const CONFIG = require("./config.js");
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Barkr backend API'});
+  res.status(200).json({ message: `Barkr ${CONFIG.ENVIRONMENT} API`});
 });
 
 app.post("/users", UserController.createUser);
@@ -31,9 +32,6 @@ app.delete("/dates/:dateId", SessionMiddleware.applySession, DogDateController.d
 app.post("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.addDogToDogDate);
 app.delete("/dates/:dateId/dogs/:dogId", SessionMiddleware.applySession, DogDateController.deleteDogFromDogDate);
 
-// TODO:
-// const port = 3001;
-const port = 80;
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+app.listen(CONFIG.PORT, () => {
+  console.log(`App listening on port ${CONFIG.PORT}`);
 });
