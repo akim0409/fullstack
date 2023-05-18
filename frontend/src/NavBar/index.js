@@ -11,6 +11,7 @@ const NavBar = (props) => {
   const signOut = () => {
     setSessionToken(null);
     Cookies.remove("token");
+    Cookies.remove("token", {domain: ".autumn-kim-barkr-app.com"});
   };
   
   return (

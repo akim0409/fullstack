@@ -60,12 +60,12 @@ const AuthForm = (props) => {
               <div className="mx-4 text-stone-400">or</div>
               <div className="flex-1 h-px bg-stone-300"></div>
             </div>
-            <button
+            <div
               onClick={handleDemoSignIn}
-              className="my-4 text-lg rounded-md bg-sky-600 px-2 py-2 text-sky-200 w-full hover:bg-sky-800"
+              className="cursor-pointer text-center my-4 text-lg rounded-md bg-sky-600 px-2 py-2 text-sky-200 w-full hover:bg-sky-800"
             >
               Demo Sign In
-            </button>
+            </div>
           </>
         ) : null}
       </form>

@@ -84,7 +84,7 @@ Then, pull latest from github and restart server
 ```
 $ git pull
 $ export NODE_ENV=production
-$ pm2 start server.js
+$ pm2 start server.js --update-env
 ```
 
 
