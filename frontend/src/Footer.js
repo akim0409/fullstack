@@ -17,7 +17,7 @@ const Footer = () => {
           </Link>
           <div className="text-white">
             <a
-              href="https://www.linkedin.com/in/autumn-k-a855a013b/"
+              href="https://www.linkedin.com/in/autumn-kim/"
               target="_blank"
               rel="noreferrer"
             >
