@@ -28,6 +28,7 @@ const DogDateListPage = (props) => {
 
   useEffect(() => {
     fetchDogDates();
+    window.scrollTo(0,0);
   }, [sessionToken]);
 
   const dogDateListItems = dogDates.map((dogDate, idx) => {

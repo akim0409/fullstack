@@ -22,6 +22,7 @@ const DogListPage = (props) => {
 
   useEffect(() => {
     fetchDogs();
+    window.scrollTo(0,0);
   }, [sessionToken]);
 
   const ownedDogs = dogs.filter((dog) => dog.owned === true);

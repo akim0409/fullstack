@@ -6,6 +6,7 @@ const TextField = (props) => {
 
   useEffect(() => {
     setError(validate(value));
+    // eslint-disable-next-line
   }, [])
 
   return (

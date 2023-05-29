@@ -24,6 +24,7 @@ const DogShowPage = () => {
 
   useEffect(() => {
     fetchDogById();
+    window.scrollTo(0,0);
   }, [fetchDogById]);
 
   return (

@@ -23,7 +23,7 @@ Authentication is implemented using Json web tokens (JWT) stored in browser cook
 ```plaintext
 $ cd frontend
 $ npm install
-$ npm run dev
+$ npm start
 ```
 
 ### Backend

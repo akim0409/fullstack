@@ -42,6 +42,7 @@ const DogDateShowPage = () => {
   useEffect(() => {
     fetchDogDateById();
     fetchUserDogs();
+    window.scrollTo(0,0);
   }, [fetchDogDateById, fetchUserDogs]);
 
   const guestDogIds = new Set();

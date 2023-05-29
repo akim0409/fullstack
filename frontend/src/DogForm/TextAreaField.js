@@ -6,6 +6,7 @@ const TextAreaField = (props) => {
 
   useEffect(() => {
     setError(validate(value));
+    // eslint-disable-next-line
   }, [])
 
 
