@@ -46,7 +46,7 @@ const DogUpdatePage = (props) => {
   }
 
   return (
-    <div className="flex flex-1 justify-center items-center bg-sky-100">
+    <div className="flex flex-1 justify-center items-center bg-sky-100 py-40">
      <DogForm 
         dog={dog}
         title="Edit Dog"

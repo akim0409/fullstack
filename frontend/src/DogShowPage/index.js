@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { apiFetch } from "../services";
 import PageLoader from "../PageLoader";
@@ -9,6 +9,8 @@ const DogShowPage = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const backgroundRef = useRef(null);
 
   const fetchDogById = useCallback(async () => {
     setIsLoading(true);
@@ -28,6 +30,7 @@ const DogShowPage = () => {
   }, [fetchDogById]);
 
   return (
+    <>
     <div className="py-16 flex justify-center bg-sky-100">
       {isLoading ? (
         <PageLoader />
@@ -61,14 +64,28 @@ const DogShowPage = () => {
             </div>
             <div className="text-stone-400">
               {dog.owned ? (
-                <div className="cursor-pointer hover:text-sky-700">
-                  <button
-                    onClick={() => navigate(`/dog/update/${params.dogId}`)}
-                  >
-                    Edit
-                  </button>
-                  <i className="fa-solid fa-pen-to-square ml-2"></i>
-                </div>
+                <>
+                  <div className="cursor-pointer hover:text-sky-700">
+                    <button
+                      onClick={() => navigate(`/dog/update/${params.dogId}`)}
+                      className="w-16 flex justify-end items-center"
+                    >
+                      Edit
+                    <i className="fa-solid fa-pen-to-square ml-2"></i>
+                    </button>
+                  </div>
+                  <div className="cursor-pointer hover:text-red-600">
+                    <button
+                      onClick={() => {
+                        setIsDeleteModalOpen(true);
+                      }}
+                      className="w-16 flex justify-end items-center"
+                    >
+                      Delete
+                    <i className="fa-solid fa-trash-can ml-2"></i>
+                    </button>
+                  </div>
+                </>
               ) : null}
             </div>
           </div>
@@ -140,6 +157,48 @@ const DogShowPage = () => {
         </div>
       )}
     </div>
+    {isDeleteModalOpen ? (   
+        <div 
+          onClick={(event) => {
+            if (backgroundRef.current === event.target) {
+              setIsDeleteModalOpen(false);
+            }
+          }}
+          className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-900/50"
+          ref={backgroundRef}
+        >
+          <div className="relative rounded-md bg-white flex flex-col justify-center items-center p-6 sm:p-14">
+            <i 
+              onClick={() => {
+                setIsDeleteModalOpen(false);
+              }}
+              className="absolute top-0 right-2 text-2xl text-sky-500 fa-solid fa-delete-left hover:text-sky-700 hover:cursor-pointer"
+            ></i>
+            <div className="text-xl my-8 font-semibold text-zinc-700 text-center">Are you sure you want to delete your doggy?</div>
+            <div className="flex mt-6">
+              <button 
+              className="w-32 m-2 bg-zinc-300 text-zinc-500 rounded-md px-4 py-1 hover:bg-zinc-400 hover:text-zinc-600"
+              onClick={() => {
+                setIsDeleteModalOpen(false);
+              }}
+              >Cancel</button>
+              <button 
+                onClick={ async () => {
+                  setIsDeleteModalOpen(false)
+                  await apiFetch({
+                    path: `/dogs/${params.dogId}`,
+                    method: "DELETE"
+                  })
+                  navigate(`/`)
+              }}
+                className="w-32 m-2 rounded-md px-4 py-1 bg-orange-400 text-white hover:bg-orange-500"
+              >Delete</button>
+            </div>
+            
+          </div>
+        </div>
+      ) : null}
+    </>  
   );
 };
 
