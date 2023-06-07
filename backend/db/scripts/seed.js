@@ -343,49 +343,49 @@ const runSeed = async () => {
       "https://www.omlet.us/images/cache/512/341/Korean-Jindo-Outside.jpg",
   });
 
-  const testDate1 = await DogDate.create({
+  const testDate1 = await testUser.createDogDate({
     location: "Overpeck Park, Leonia, NJ",
     activity: "Fetch",
     maxNumberDogs: 3,
     date: new Date("2023-07-01 14:30:00"),
   });
 
-  const testDate2 = await DogDate.create({
+  const testDate2 = await testUser.createDogDate({
     location: "Central Park, Bow Bridge",
     activity: "Tug of War",
     maxNumberDogs: 2,
     date: new Date("2024-04-09 12:00:00"),
   });
 
-  const testDate3 = await DogDate.create({
+  const testDate3 = await alvinUser.createDogDate({
     location: "Prospect Park, Breeze Hill",
     activity: "Frisbee",
     maxNumberDogs: 7,
     date: new Date("2024-05-27 16:00:00"),
   });
 
-  const testDate4 = await DogDate.create({
+  const testDate4 = await alvinUser.createDogDate({
     location: "Brookdale Park, Montclair, NJ",
     activity: "Swimming",
     maxNumberDogs: 5,
     date: new Date("2023-09-03 13:30:00"),
   });
 
-  const testDate5 = await DogDate.create({
+  const testDate5 = await juneUser.createDogDate({
     location: "Westcrest Park, Seattle, WA",
     activity: "Digging",
     maxNumberDogs: 4,
     date: new Date("2023-10-12 15:45:00"),
   });
 
-  const testDate6 = await DogDate.create({
+  const testDate6 = await donaldUser.createDogDate({
     location: "Yosemite National Park",
     activity: "Hide & Seek",
     maxNumberDogs: 2,
     date: new Date("2023-11-24 11:00:00"),
   });
 
-  const testDate7 = await DogDate.create({
+  const testDate7 = await autumnUser.createDogDate({
     location: "Fuller Dog Park, Denver, CO",
     activity: "Running",
     maxNumberDogs: 6,

@@ -35,6 +35,19 @@ $ export NODE_ENV=development
 $ nodemon server.js
 ```
 
+#### Access SQLite Database via terminal
+
+```
+$ sqlite3 database.sqlite
+
+# SELECT * FROM Users;
+
+# list tables
+SELECT name FROM sqlite_schema
+WHERE type='table'
+ORDER BY name;
+```
+
 #### Seeding the database
 
 ```plaintext

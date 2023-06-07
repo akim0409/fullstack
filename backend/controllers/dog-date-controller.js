@@ -25,11 +25,10 @@ const getDogDateById = async (req, res) => {
     const newDate = {
       ...date.get({ plain: true }),
       numberDogs: await date.countGuests(),
-      guests: await date.getGuests()
+      guests: await date.getGuests(),
+      owned: req.user ? await req.user.hasDogDate(date) : false
     };
     res.status(200).json(newDate);
-      
-
   } else {
     res.status(404).json({ message: "DogDate not found" });
   }
@@ -37,7 +36,7 @@ const getDogDateById = async (req, res) => {
 
 const createDogDate = async (req, res) => {
   if (req.user) {
-    const date = await DogDate.create(req.body);
+    const date = await req.user.createDogDate(req.body);
     res.status(201).json(date);
   } else {
     res.status(401).json({ message: "Must be signed in" });

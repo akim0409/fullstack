@@ -24,6 +24,7 @@ const DogDateShowPage = () => {
     });
 
     const data = await response.json();
+    console.log(data);
     setIsLoading(false);
     setDogDate(data);
   }, [params.dateId]);
