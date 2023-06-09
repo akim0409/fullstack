@@ -25,7 +25,7 @@ app.get("/dogs/:dogId", SessionMiddleware.applySession, DogController.getDogById
 app.post("/dogs", SessionMiddleware.applySession, DogController.createDog);
 app.put("/dogs/:dogId", SessionMiddleware.applySession, DogController.updateDogById);
 app.delete("/dogs/:dogId", SessionMiddleware.applySession, DogController.deleteDogById);
-app.get("/dates", DogDateController.getDogDates);
+app.get("/dates", SessionMiddleware.applySession, DogDateController.getDogDates);
 app.get("/dates/:dateId", SessionMiddleware.applySession, DogDateController.getDogDateById);
 app.post("/dates", SessionMiddleware.applySession, DogDateController.createDogDate);
 app.put("/dates/:dateId", SessionMiddleware.applySession, DogDateController.updateDogDateById);

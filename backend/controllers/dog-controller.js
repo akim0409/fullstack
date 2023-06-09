@@ -41,12 +41,13 @@ const getDogById = async (req, res) => {
   if (req.user) {
     const owned = await req.user.hasDog(dog);
     const dogObj = dog.get({ plain: true });
-
-    res.status(200).json({ ...dogObj, owned });
+    const dates = await dog.getDates();
+    res.status(200).json({ ...dogObj, owned, dates });
   } else {
     res.status(200).json(dog);
   }
 };
+
 
 const updateDogById = async (req, res) => {
   const dog = await Dog.findOne({

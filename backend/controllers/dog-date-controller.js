@@ -10,6 +10,7 @@ const getDogDates = async (req, res) => {
     newDates.push({
       ...date.get({ plain: true }),
       numberDogs: await date.countGuests(),
+      owned: req.user ? await req.user.hasDogDate(date) : false,
     });
   }
 
@@ -26,7 +27,7 @@ const getDogDateById = async (req, res) => {
       ...date.get({ plain: true }),
       numberDogs: await date.countGuests(),
       guests: await date.getGuests(),
-      owned: req.user ? await req.user.hasDogDate(date) : false
+      owned: req.user ? await req.user.hasDogDate(date) : false,
     };
     res.status(200).json(newDate);
   } else {
@@ -125,7 +126,9 @@ const deleteDogFromDogDate = async (req, res) => {
   } else {
     res
       .status(401)
-      .json({ message: `Not authorized to delete dog id: ${req.params.dogId}` });
+      .json({
+        message: `Not authorized to delete dog id: ${req.params.dogId}`,
+      });
   }
 };
 
@@ -136,5 +139,5 @@ module.exports = {
   updateDogDateById,
   deleteDogDateById,
   addDogToDogDate,
-  deleteDogFromDogDate
+  deleteDogFromDogDate,
 };

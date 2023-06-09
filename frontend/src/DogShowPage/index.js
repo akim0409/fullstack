@@ -154,6 +154,9 @@ const DogShowPage = () => {
               </div>
             </div>
           </div>
+          <div className="flex pb-2 mb-4 text-2xl text-stone-500 font-ubuntu font-semibold mb-4 border-b-2 border-orange-400">
+            Upcoming Dates
+          </div>
         </div>
       )}
     </div>

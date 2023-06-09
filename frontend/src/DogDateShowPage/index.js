@@ -43,7 +43,7 @@ const DogDateShowPage = () => {
   useEffect(() => {
     fetchDogDateById();
     fetchUserDogs();
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }, [fetchDogDateById, fetchUserDogs]);
 
   const guestDogIds = new Set();
@@ -73,25 +73,33 @@ const DogDateShowPage = () => {
   const addDogItems = ownedDogs
     .filter((dog) => !guestDogIds.has(dog.id))
     .map((dog) => (
-      <AddGuestItem key={dog.id} dog={dog} onClick={async () => {
-        await apiFetch({
-          path: `/dates/${dogDate.id}/dogs/${dog.id}`,
-          method: "POST",
-        });
-        fetchDogDateById();
-      }}/>
+      <AddGuestItem
+        key={dog.id}
+        dog={dog}
+        onClick={async () => {
+          await apiFetch({
+            path: `/dates/${dogDate.id}/dogs/${dog.id}`,
+            method: "POST",
+          });
+          fetchDogDateById();
+        }}
+      />
     ));
 
   const removeDogItems = ownedDogs
     .filter((dog) => guestDogIds.has(dog.id))
     .map((dog) => (
-      <RemoveGuestItem key={dog.id} dog={dog} onClick={async () => {
-        await apiFetch({
-          path: `/dates/${dogDate.id}/dogs/${dog.id}`,
-          method: "DELETE",
-        });
-        fetchDogDateById();
-      }}/>
+      <RemoveGuestItem
+        key={dog.id}
+        dog={dog}
+        onClick={async () => {
+          await apiFetch({
+            path: `/dates/${dogDate.id}/dogs/${dog.id}`,
+            method: "DELETE",
+          });
+          fetchDogDateById();
+        }}
+      />
     ));
 
   return (
@@ -100,6 +108,23 @@ const DogDateShowPage = () => {
         <PageLoader />
       ) : (
         <div className="max-w-4xl w-full">
+          <div className="flex justify-end px-4">
+
+            <div className="w-[77px] cursor-pointer text-stone-400 hover:text-red-600">
+              <button
+                onClick={ async () => {
+                await apiFetch({
+                  path: `/dates/${params.dateId}`,
+                  method: "DELETE"
+                })
+                navigate(`/dates`)
+              }}
+              >
+                Delete
+                <i className="fa-solid fa-trash-can ml-2"></i>
+              </button>
+            </div>
+          </div>
           <DogDateItem
             dogDate={dogDate}
             bgColor="bg-sky-700"
