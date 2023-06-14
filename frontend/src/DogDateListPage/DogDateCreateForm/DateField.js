@@ -3,10 +3,10 @@ import moment from 'moment';
 import "react-datetime/css/react-datetime.css";
 import './date-field.css';
 
-var yesterday = moment().subtract(1, "day");
 function valid(current) {
-  return current.isAfter(yesterday);
+  return current.isAfter(moment());
 }
+
 
 // https://www.npmjs.com/package/react-datetime#customize-the-input-appearance
 const DateField = (props) => {

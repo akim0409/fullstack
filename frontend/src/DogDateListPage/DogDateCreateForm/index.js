@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { apiFetch } from "../../services";
+import moment from 'moment';
+// import "react-datetime/css/react-datetime.css";
 import DropDownField from "../../DogForm/DropDownField";
 import NumberField from "../../DogForm/NumberField";
 import TextField from "../../DogForm/TextField";
 import DateField from "./DateField";
 
 const DogDateCreateForm = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(moment().add(1,'days').toDate());
   const [location, setLocation] = useState("");
   const [activity, setActivity] = useState("Digging");
   const [maxNumberDogs, setMaxNumberDogs] = useState(2);
