@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { apiFetch } from "../../services";
 import moment from 'moment';
-// import "react-datetime/css/react-datetime.css";
 import DropDownField from "../../DogForm/DropDownField";
 import NumberField from "../../DogForm/NumberField";
 import TextField from "../../DogForm/TextField";

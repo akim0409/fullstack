@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { apiFetch } from "../services";
 import DogDateItem from "../DogDateListPage/DogDateItem";
@@ -13,8 +13,10 @@ const DogDateShowPage = () => {
   });
   const [ownedDogs, setOwnedDogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
+  const backgroundRef = useRef(null);
 
   const fetchDogDateById = useCallback(async () => {
     setIsLoading(true);
@@ -24,7 +26,6 @@ const DogDateShowPage = () => {
     });
 
     const data = await response.json();
-    console.log(data);
     setIsLoading(false);
     setDogDate(data);
   }, [params.dateId]);
@@ -103,6 +104,7 @@ const DogDateShowPage = () => {
     ));
 
   return (
+    <>
     <div className="py-16 flex justify-center bg-sky-100 pb-80">
       {isLoading ? (
         <PageLoader />
@@ -112,13 +114,9 @@ const DogDateShowPage = () => {
 
             <div className="w-[77px] cursor-pointer text-stone-400 hover:text-red-600">
               <button
-                onClick={ async () => {
-                await apiFetch({
-                  path: `/dates/${params.dateId}`,
-                  method: "DELETE"
-                })
-                navigate(`/dates`)
-              }}
+                onClick={() => {
+                        setIsDeleteModalOpen(true);
+                      }}
               >
                 Delete
                 <i className="fa-solid fa-trash-can ml-2"></i>
@@ -147,6 +145,63 @@ const DogDateShowPage = () => {
         </div>
       )}
     </div>
+    {isDeleteModalOpen ? (   
+        <div 
+          onClick={(event) => {
+            if (backgroundRef.current === event.target) {
+              setIsDeleteModalOpen(false);
+            }
+          }}
+          className="z-10 fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-900/60"
+          ref={backgroundRef}
+        >
+          <div className="relative rounded-lg bg-white flex flex-col justify-center items-center p-6 sm:p-14">
+            <i 
+              onClick={() => {
+                setIsDeleteModalOpen(false);
+              }}
+              className="absolute top-4 right-6 text-2xl text-zinc-400 fa-solid fa-xmark hover:text-sky-700 hover:cursor-pointer"
+            ></i>
+            <div className="text-xl my-8 font-black font-ubuntu text-zinc-700 text-center">Delete {dogDate.activity} play date?</div>
+            <div className="p-4 w-full bg-[#FBE9DB] rounded-md border-l-4 border-orange-600 flex">
+              <div className="mr-4">
+                <i className="text-orange-600 fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div>
+                <div className="font-bold text-red-800">
+                  Warning
+                </div>
+                <div className="text-sm my-2">
+                  Are you sure you want to delete <span className="font-semibold">{dogDate.activity}</span> play date? You can't undo this action.
+                </div>
+              </div>
+
+            </div>
+            <div className="flex mt-8">
+              <button 
+              className="w-36 m-2 bg-zinc-400 text-white font-semibold rounded-full px-4 py-2 hover:bg-zinc-500"
+              onClick={() => {
+                setIsDeleteModalOpen(false);
+              }}
+              >Cancel</button>
+              <button 
+                onClick={ async () => {
+                  await apiFetch({
+                    path: `/dates/${params.dateId}`,
+                    method: "DELETE"
+                  })
+                  navigate(`/dates`)
+                }}
+                className="w-36 m-2 font-semibold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-red-700"
+              >Delete
+              <i className="fa-solid fa-trash-can ml-2"></i>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 
