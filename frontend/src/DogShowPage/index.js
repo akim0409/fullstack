@@ -164,20 +164,34 @@ const DogShowPage = () => {
               setIsDeleteModalOpen(false);
             }
           }}
-          className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-900/50"
+          className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-900/60"
           ref={backgroundRef}
         >
-          <div className="relative rounded-md bg-white flex flex-col justify-center items-center p-6 sm:p-14">
+          <div className="relative rounded-lg bg-white flex flex-col justify-center items-center p-6 sm:p-14">
             <i 
               onClick={() => {
                 setIsDeleteModalOpen(false);
               }}
-              className="absolute top-0 right-2 text-2xl text-sky-500 fa-solid fa-delete-left hover:text-sky-700 hover:cursor-pointer"
+              className="absolute top-4 right-6 text-2xl text-zinc-400 fa-solid fa-xmark hover:text-sky-700 hover:cursor-pointer"
             ></i>
-            <div className="text-xl my-8 font-semibold text-zinc-700 text-center">Are you sure you want to delete your doggy?</div>
-            <div className="flex mt-6">
+            <div className="text-xl my-8 font-black font-ubuntu text-zinc-700 text-center">Delete {dog.name}?</div>
+            <div className="p-4 w-full bg-[#FBE9DB] rounded-md border-l-4 border-orange-600 flex">
+              <div className="mr-4">
+                <i className="text-orange-600 fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div>
+                <div className="font-bold text-red-800">
+                  Warning
+                </div>
+                <div className="text-sm my-2">
+                  Are you sure you want to delete <span className="font-semibold">{dog.name}</span>'s profile? You can't undo this action.
+                </div>
+              </div>
+
+            </div>
+            <div className="flex mt-8">
               <button 
-              className="w-32 m-2 bg-zinc-300 text-zinc-500 rounded-md px-4 py-1 hover:bg-zinc-400 hover:text-zinc-600"
+              className="w-36 m-2 bg-zinc-400 text-white font-semibold rounded-full px-4 py-2 hover:bg-zinc-500"
               onClick={() => {
                 setIsDeleteModalOpen(false);
               }}
@@ -191,8 +205,10 @@ const DogShowPage = () => {
                   })
                   navigate(`/`)
               }}
-                className="w-32 m-2 rounded-md px-4 py-1 bg-orange-400 text-white hover:bg-orange-500"
-              >Delete</button>
+                className="w-36 m-2 font-semibold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-red-700"
+              >Delete
+              <i className="fa-solid fa-trash-can ml-2"></i>
+              </button>
             </div>
             
           </div>
