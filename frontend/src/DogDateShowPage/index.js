@@ -27,6 +27,7 @@ const DogDateShowPage = () => {
 
     const data = await response.json();
     setIsLoading(false);
+    console.log(data);
     setDogDate(data);
   }, [params.dateId]);
 
@@ -111,8 +112,7 @@ const DogDateShowPage = () => {
       ) : (
         <div className="max-w-4xl w-full">
           <div className="flex justify-end px-4">
-
-            <div className="w-[77px] cursor-pointer text-stone-400 hover:text-red-600">
+            {dogDate.owned ? <div className="w-[77px] cursor-pointer text-stone-400 hover:text-red-600">
               <button
                 onClick={() => {
                         setIsDeleteModalOpen(true);
@@ -121,7 +121,7 @@ const DogDateShowPage = () => {
                 Delete
                 <i className="fa-solid fa-trash-can ml-2"></i>
               </button>
-            </div>
+            </div> : null}
           </div>
           <DogDateItem
             dogDate={dogDate}
